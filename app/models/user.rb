@@ -23,11 +23,11 @@ class User < ActiveRecord::Base
   
   #image logic?
   
-  belongs_to: {
-    class_name: "User",
-    foreign_key: :user_id,
+  has_many :listings,
+    class_name: "Listing",
+    foreign_key: :owner_id,
     primary_key: :id
-  }
+  
   
   def self.find_by_credentials(user_params)
     user = User.find_by_email(user_params[:email])

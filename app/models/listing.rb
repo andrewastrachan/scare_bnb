@@ -7,11 +7,11 @@
 # end
 
 class Listing < ActiveRecord::Base
-  validates :name, :title, presence: true
+  validates :owner_id, :description, :title, presence: true
   
-  belongs_to: {
+  belongs_to :user,
     class_name: "User",
-    foreign_key: :user_id,
+    foreign_key: :owner_id,
     primary_key: :id
-  }
+    
 end
