@@ -5,11 +5,11 @@ ScareBnb.Routers.Router = Backbone.Router.extend({
 	},
 	
 	routes: {
-		"":"index"
+		"":"search"
 	},
 	
-	index: function(){
-		listingsView = new ScareBnb.Views.ListingsIndex({
+	search: function(){
+		var listingsView = new ScareBnb.Views.ListingSearch({
 			collection: ScareBnb.Collections.listings
 		});
 		this._swapView(listingsView)

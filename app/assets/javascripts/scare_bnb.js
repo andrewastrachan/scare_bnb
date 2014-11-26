@@ -4,11 +4,8 @@ window.ScareBnb = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
-		debugger
 		new ScareBnb.Routers.Router({$rootEl: $(".root-container")});
 		Backbone.history.start();
-		
   }
 };
 
