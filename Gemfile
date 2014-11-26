@@ -10,6 +10,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'bcrypt'
 gem 'jbuilder', '~> 2.0'
+gem 'bootstrap-sass'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 group :development do

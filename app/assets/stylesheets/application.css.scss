@@ -1,0 +1,96 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/*SIGNIN SIGNUP*/
+
+.form-signin {
+	max-width: 330px;
+	padding: 15px;
+	margin: 0 auto;
+}
+
+.form-signin #name {
+	margin-bottom: -21px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+
+.form-signin #email {
+	margin-bottom: -21px;
+	border-radius: 0px;
+}
+
+.form-signin #password {
+	margin-bottom: 2px;
+	border-top-right-radius: 0px;
+	border-top-left-radius: 0px;
+}
+
+
+.form-signin .form-control {
+	height: auto;
+	padding: 10px;
+}
+
+.form-control {
+	color: #555;
+	border: 1px solid #ccc;
+}
+
+.form-signin-signup-heading {
+	text-align: center;
+}
+
+body {
+	background-color: #eee;
+}
+
+/*NAVBAR*/
+
+.btn-sign-out {
+	margin-top: 7px;
+}
+
+
+.masthead-nav {
+float: right;
+}
+
+.masthead, .mastfoot, .cover-container {
+width: 700px;
+}
+
+.cover-container{
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.nav {
+	display: inline-flex;
+}
+
+.logo {
+	margin-top: -14px;
+}
+
+/*Root*/
+
+.root-container {
+	margin-top: 30px;
+}

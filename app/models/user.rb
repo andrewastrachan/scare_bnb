@@ -21,9 +21,13 @@ class User < ActiveRecord::Base
   attr_reader :password
   after_initialize :ensure_session_token
   
-  #need to do: 
-  #associations
   #image logic?
+  
+  belongs_to: {
+    class_name: "User",
+    foreign_key: :user_id,
+    primary_key: :id
+  }
   
   def self.find_by_credentials(user_params)
     user = User.find_by_email(user_params[:email])

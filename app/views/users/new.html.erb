@@ -1,34 +1,47 @@
-<h1>Sign Up</h1>
+<div class="container">
 
-<form action="/users" method="post">
-	<input 
-		type="hidden" 
-		name="authenticity_token" 
-		value="<%= form_authenticity_token %>">
-	
-	<label>Name
-	<input 
-		type="text"
-		name="user[name]">
-	</label>
-	<br>
-	
-	<label>Email
-	<input 
-		type="text"
-		name="user[email]">
-	</label>
-	
-	<br>
+	<form action="/users" method="post" class="form-signin" role="form">
+			<h1 class="form-signin-signup-heading">Sign Up</h2>
 		
-	<label>Password
-	<input 
-		type="password"
-		name="user[password]">
-	</label>
+		<input 
+			type="hidden" 
+			name="authenticity_token" 
+			value="<%= form_authenticity_token %>">
 	
-	<br>
+		<label for="name" class="sr-only">Name</label>
+		<input 
+			id="name"
+			type="text"
+			name="user[name]"
+			class="form-control"
+			placeholder="Name">
+		<br>
 	
-	<input type="submit" value="Sign Up">
+		<label for="email" class="sr-only">Email</label>
+		<input 
+			id="email"
+			type="text"
+			name="user[email]"
+			class="form-control"
+			placeholder="Email address"
+			value="">
 	
-</form>
+		<br>
+		
+		<label for="password" class="sr-only">Password</label>
+		<input 
+			id="password"
+			type="password"
+			name="user[password]"
+			class="form-control"
+			placeholder="Password">
+	
+		<br>
+	
+		<button 
+				class="btn btn-lg btn-primary btn-block" 				
+				type="submit">Sign Up</button>
+	
+	</form>
+
+</div>
