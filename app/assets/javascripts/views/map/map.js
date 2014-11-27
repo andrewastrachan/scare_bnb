@@ -13,7 +13,8 @@ ScareBnb.Views.Map = Backbone.View.extend({
 	setMap: function(){
 		var mapOptions = {
 		          center: { lat: 37.781056, lng: -122.411455},
-		          zoom: 16
+		          zoom: 14,
+							styles: mapStylez
 		        };
 		var domElement = this.$('#map-canvas');				
 		this._map = new google.maps.Map(domElement.get(0), mapOptions);
@@ -88,10 +89,118 @@ ScareBnb.Views.Map = Backbone.View.extend({
 		return this;
 	},
 	
-	updateCollection: function () {
-		// get lat/long from map
-		// define filter function based on lat/long
-		// call filter on this.collection, passing in filter function
-		// set this.collection
-	}
 }); 
+
+var mapStylez = [
+    {
+        "featureType": "water",
+        "stylers": [
+            {
+                "color": "#0e171d"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "stylers": [
+            {
+                "color": "#1e303d"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "stylers": [
+            {
+                "color": "#1e303d"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "stylers": [
+            {
+                "color": "#1e303d"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "stylers": [
+            {
+                "color": "#182731"
+            },
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "color": "#f0c514"
+            },
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "color": "#1e303d"
+            },
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#e77e24"
+            },
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#94a5a6"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            },
+            {
+                "color": "#e84c3c"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "stylers": [
+            {
+                "color": "#e84c3c"
+            },
+            {
+                "visibility": "off"
+            }
+        ]
+    }
+]
