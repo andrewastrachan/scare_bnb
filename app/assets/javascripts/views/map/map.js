@@ -17,7 +17,7 @@ ScareBnb.Views.Map = Backbone.View.extend({
 		        };
 		var domElement = this.$('#map-canvas');				
 		this._map = new google.maps.Map(domElement.get(0), mapOptions);
-		
+	
 		var that = this
 		google.maps.event.addListener(this._map, 'idle', this.setMapFilters.bind(this))
 
@@ -38,6 +38,19 @@ ScareBnb.Views.Map = Backbone.View.extend({
 		ScareBnb.Collections.listings.filters.lngy = lngy
 	 
 		ScareBnb.Collections.listings.updateFilters()
+		this.updateMap()
+	 },
+	 
+	 updateMap: function() {
+		 that = this
+		 	this.collection.forEach(function(model){
+				this._markers = []
+				var marker = new google.maps.Marker({
+				      position: { lat: model.get('latitude'), lng: model.get('longitude')},
+				      map: that._map,
+				      title: model.get('title')
+				  });
+		 	});
 	 },
 		
 		
