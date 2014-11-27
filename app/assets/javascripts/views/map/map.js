@@ -15,22 +15,32 @@ ScareBnb.Views.Map = Backbone.View.extend({
 		          center: { lat: 37.781056, lng: -122.411455},
 		          zoom: 16
 		        };
-		var domElement = this.$('#map-canvas')				
+		var domElement = this.$('#map-canvas');				
 		this._map = new google.maps.Map(domElement.get(0), mapOptions);
 		
 		var that = this
-		google.maps.event.addListener(this._map, 'idle', function() {
-		    // 3 seconds after the center of the map has changed, pan back to the
-		    // marker.
-			debugger
-			// ShareBnb.Collections.listings
-			 console.log("latx:" + that._map.getBounds()["Ea"]["j"])
-			 console.log("laty:" + that._map.getBounds()["Ea"]["k"])
-			 console.log("lngx:" + that._map.getBounds()["va"]["j"])
-			 console.log("lngy:" + that._map.getBounds()["va"]["k"])
-		  });
+		google.maps.event.addListener(this._map, 'idle', this.setMapFilters.bind(this))
+
+			
 		//register event listener
 	},
+	
+	setMapFilters: function() {
+		var latx = this._map.getBounds()["Ea"]["j"];
+		var laty = this._map.getBounds()["Ea"]["k"];
+		var lngx = this._map.getBounds()["va"]["j"];
+		var lngy = this._map.getBounds()["va"]["k"];
+		
+		//not DRY, i know
+		ScareBnb.Collections.listings.filters.latx = latx
+		ScareBnb.Collections.listings.filters.laty = laty
+		ScareBnb.Collections.listings.filters.lngx = lngx
+		ScareBnb.Collections.listings.filters.lngy = lngy
+	 
+		ScareBnb.Collections.listings.updateFilters()
+	 },
+		
+		
 	
 	render: function() {
 		var content = this.template();

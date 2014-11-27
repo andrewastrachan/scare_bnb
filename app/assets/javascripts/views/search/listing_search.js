@@ -6,7 +6,7 @@ ScareBnb.Views.ListingSearch = Backbone.CompositeView.extend ({
 	},
 	
 	updateColl: function(){
-		debugger
+		ScareBnb.Collections.listings.updateFilters()
 	},
 	
 	attachMap: function(){

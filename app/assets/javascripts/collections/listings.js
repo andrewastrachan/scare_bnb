@@ -14,17 +14,23 @@ ScareBnb.Collections.Listings = Backbone.Collection.extend({
 	// collection.filtered();
 	
 	filters: {
-		minLat: 0
 	},
 	
 	updateFilters: function () {
-		var models = this.filter(function (model) {this
-			if (model.get('latitude') === 0) {
+		if (typeof this.filters.lngx != "undefined") {
+		that = this;
+			var models = this.filter(function (model) {this
+				var lat = model.get('latitude');
+				var lng = model.get('longitude'); 
+				if ((lng < that.filters.lngy && lng > that.filters.lngx) && (lat < that.filters.latx && lat > that.filters.laty)) {
+					return true;
+				} else
 				return false;
-			}
-			return true;
-		});
-		return this.filtered().set(models);
+			});
+			//narrows collection
+			return this.filtered().set(models);
+			
+		}
 	}
 });
 
