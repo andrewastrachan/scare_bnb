@@ -111,6 +111,15 @@ width: 700px;
 	overflow-y: scroll;
 }
 
+.sidebar-lists {
+	position: fixed;
+	margin-top: 40px;
+	right: 0px;
+	width: 60%;
+	border: 1px black solid;
+	overflow-y: scroll;
+}
+
 #map-canvas {
 	width: 550px;
 	height: 800px;
