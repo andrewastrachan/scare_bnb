@@ -7,7 +7,8 @@ gem 'annotate'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
-gem 'jquery-rails'
+gem 'jquery-rails', "~> 2.3.0"
+gem 'jquery-nouislider-rails'
 gem 'bcrypt'
 gem 'jbuilder', '~> 2.0'
 gem 'bootstrap-sass'
@@ -15,6 +16,10 @@ gem 'geocoder'
 gem 'newrelic_rpm'
 gem 'backbone-on-rails'
 gem 'sdoc', '~> 0.4.0',          group: :doc
+
+# group :assets do
+#
+# end
 
 group :development do
   gem 'spring'

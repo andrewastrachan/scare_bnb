@@ -19,11 +19,17 @@ ScareBnb.Views.ListingSearch = Backbone.CompositeView.extend ({
 		this.addSubview(".lists", listingsIndex);
 	},
 	
+	attachSlider: function() {
+		var sliderView = new ScareBnb.Views.Slider();
+		this.addSubview(".bells-and-whistles", sliderView);
+	},
+	
 	render: function(){
 		var content = this.template();
 		this.$el.html(content);
 		this.attachListings();
 		this.attachMap();
+		this.attachSlider();
 		return this;	
 	}
 	
