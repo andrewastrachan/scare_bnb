@@ -6,7 +6,17 @@ ScareBnb.Views.Slider = Backbone.View.extend ({
 	},
 	
 	changeFilter: function(event) {
-		console.log("change")
+		var lowerRange = this.getRangeInt($('#span-lower').html());
+		var upperRange = this.getRangeInt($('#span-upper').html());
+		ScareBnb.Collections.listings.filters.lowerRange = lowerRange;
+		ScareBnb.Collections.listings.filters.upperRange = upperRange;
+		ScareBnb.Collections.listings.updateFilters();
+
+	},
+	
+	getRangeInt: function(num){
+		num = num.substring(1,7);
+		return parseInt(num);
 	},
 	
 	setSliderEvents: function() {

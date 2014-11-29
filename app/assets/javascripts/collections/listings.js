@@ -19,6 +19,8 @@ ScareBnb.Collections.Listings = Backbone.Collection.extend({
 	updateFilters: function () {
 		if (typeof this.filters.lngx != "undefined") {
 		that = this;
+		
+			//filtered by map
 			var models = this.filter(function (model) {this
 				var lat = model.get('latitude');
 				var lng = model.get('longitude'); 
@@ -27,6 +29,18 @@ ScareBnb.Collections.Listings = Backbone.Collection.extend({
 				} else
 				return false;
 			});
+
+			//filtered by price
+			if (typeof this.filters.upperRange != "undefined") {
+				var models = models.filter(function(model) {
+					var price = parseInt(model.get('price'))
+						if (price >= that.filters.lowerRange && price <= that.filters.upperRange) {
+							return true;
+						} else {
+							return false;
+						}
+				});
+			}
 			//narrows collection
 			return this.filtered().set(models);
 			
