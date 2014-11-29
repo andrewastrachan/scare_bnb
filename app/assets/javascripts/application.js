@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.liblink
 //= require jquery.nouislider
 //= require underscore
 //= require backbone

@@ -5,15 +5,43 @@ ScareBnb.Views.Slider = Backbone.View.extend ({
 		
 	},
 	
+	changeFilter: function(event) {
+		console.log("change")
+	},
+	
+	setSliderEvents: function() {
+		$(".slider").on({
+			slide: function(){
+				console.log("slide")
+			},
+			change: this.changeFilter.bind(this)
+		});	
+	},
+	
+	
 	attachSlider: function() {
 		$(".slider").noUiSlider({
-			start: [20, 80],
+			start: [1, 1000],
 			connect: true,
+			step: 10,
 			range: {
 				'min': 1,
-				'max': 10000
-			}
+				'max': 1000
+			},
+			format: {
+				  to: function ( value ) {
+					return '$' + value;
+				  },
+				  from: function ( value ) {
+					return value.replace(',-', '');
+				  }
+				}
 		});
+		
+		$(".slider").Link('lower').to($('#span-lower'));
+		$(".slider").Link('upper').to($('#span-upper'));
+		
+		this.setSliderEvents()
 	},
 	
 	render: function() {

@@ -107,6 +107,7 @@ width: 700px;
 .sidebar {
 	position: fixed;
 	right: 0px;
+	height: 32%;
 	width: 60%;
 	border: 1px black solid;
 	overflow-y: scroll;
@@ -114,11 +115,18 @@ width: 700px;
 
 .sidebar-lists {
 	position: fixed;
-	margin-top: 40px;
+	margin-top: 240px;
 	right: 0px;
 	width: 60%;
 	border: 1px black solid;
 	overflow-y: scroll;
+}
+
+.slider-container {
+	position: relative;
+	padding: 20px 160px 50px 160px;
+	margin: 20px 0;
+	overflow: hidden;
 }
 
 #map-canvas {
