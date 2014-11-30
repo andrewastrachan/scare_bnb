@@ -23,6 +23,11 @@ class User < ActiveRecord::Base
   
   #image logic?
   
+  has_many :sent_rental_requests,
+    class_name: "Reservation",
+    foreign_key: :requester_id,
+    primary_key: :id
+  
   has_many :listings,
     class_name: "Listing",
     foreign_key: :owner_id,
