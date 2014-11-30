@@ -24,12 +24,18 @@ ScareBnb.Views.ListingSearch = Backbone.CompositeView.extend ({
 		this.addSubview(".bells-and-whistles", sliderView);
 	},
 	
+	attachCheckboxes: function() {
+		var checkboxView = new ScareBnb.Views.Checkboxes();
+		this.addSubview(".checkboxes", checkboxView)
+	},
+	
 	render: function(){
 		var content = this.template();
 		this.$el.html(content);
 		this.attachListings();
 		this.attachMap();
 		this.attachSlider();
+		this.attachCheckboxes();
 		return this;	
 	}
 	
