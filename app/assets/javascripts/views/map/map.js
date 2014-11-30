@@ -46,7 +46,7 @@ ScareBnb.Views.Map = Backbone.View.extend({
 	 },
 	 
 	 updateMap: function() {
-		 that = this
+		 var that = this
 		 this.deleteMarkers()
 		 	this.collection.forEach(function(model){
 				var marker = new google.maps.Marker({

@@ -41,6 +41,26 @@ ScareBnb.Collections.Listings = Backbone.Collection.extend({
 						}
 				});
 			}
+			
+			if (typeof this.filters.roomTypes != "undefined" && this.filters.roomTypes.length > 0) {
+				var models = models.filter(function(model) {
+					var roomType = model.get('room_type')
+					var includedType = false 
+					
+					for (var i = 0; i < that.filters.roomTypes.length; i++) {
+						if (roomType === that.filters.roomTypes[i]) {
+							includedType = true
+						}
+					}
+					
+					if (includedType) {
+						return true
+					} else {
+						return false
+					}	
+						
+				});
+			}
 			//narrows collection
 			return this.filtered().set(models);
 			
