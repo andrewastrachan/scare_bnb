@@ -124,7 +124,14 @@ width: 700px;
 
 .slider-container {
 	position: relative;
-	padding: 20px 160px 50px 160px;
+	padding: 10px 160px 0px 160px;
+	margin: 20px 0;
+	overflow: hidden;
+}
+
+.checkbox-container {
+	position: relative;
+	padding: 10px 160px 0px 160px;
 	margin: 20px 0;
 	overflow: hidden;
 }

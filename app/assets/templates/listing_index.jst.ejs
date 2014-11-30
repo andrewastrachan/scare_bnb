@@ -4,7 +4,7 @@
 	<% listings.forEach(function(listing){ %>
 
 
-		<li><%=listing.get('title')%>: <%=listing.get('price')%></li>
+		<li><%=listing.escape('title')%>, Price:<%=listing.escape('price')%>, room type:<%=listing.escape('room_type')%> </li>
 
 	<% }) %> 
 </ul>
