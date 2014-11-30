@@ -3,7 +3,7 @@ ScareBnb.Views.Map = Backbone.View.extend({
 	
 	initialize: function() {
 		this.listenTo(this.collection, "sync", this.printBounds);
-		this.listenTo(this.collection, "add remove", this.updateBounds)
+		this.listenTo(this.collection, "add remove", this.updateMap)
 		// listen to the map. When it goes idle, get lat/long and call updateCollection
 	},
 	
