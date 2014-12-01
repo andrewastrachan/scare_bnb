@@ -114,21 +114,21 @@ width: 700px;
 }
 
 .sidebar {
-	position: fixed;
+	position: absolute;
 	right: 0px;
-	height: 32%;
+	height: 250px;
 	width: 60%;
-	border: 1px black solid;
+	border-bottom: 1px lightgrey solid;
 	overflow-y: scroll;
 }
 
 .sidebar-lists {
-	position: fixed;
-	margin-top: 240px;
+	position: absolute;
+	margin-top: 251px;
 	right: 0px;
 	width: 60%;
-	border: 1px black solid;
 	overflow-y: scroll;
+	padding-left: 50px;
 }
 
 .slider-container {
@@ -156,9 +156,26 @@ width: 700px;
    height: 500px;
  }
  
- /*map-show*/
+ /*map*/
  
  #carousel-map-show {
 	 height: 175px;
 	 width: 200px;
  }
+ 
+ .listing-box{
+	 height: 225px;
+	 width: 320px;
+	 float: left;
+	 margin: 10px;
+ }
+ 
+ .image-box{
+	 height: 77%;
+	 width: 100%;
+	 background-color: lightgrey;
+ }
+ 
+ /*listings_index*/
+ 
+ 
