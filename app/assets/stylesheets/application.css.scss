@@ -101,6 +101,10 @@ width: 700px;
 
 /*Root*/
 
+label {
+	color: white
+}
+
 .root-container {
 	margin-top: 50px;
 }
@@ -119,6 +123,7 @@ width: 700px;
 	height: 250px;
 	width: 60%;
 	border-bottom: 1px lightgrey solid;
+	background-color: rgb(68, 78, 89);
 	overflow-y: scroll;
 }
 
@@ -133,9 +138,9 @@ width: 700px;
 
 .slider-container {
 	position: relative;
-	padding: 10px 160px 0px 160px;
-	margin: 20px 0;
-	overflow: hidden;
+	padding: 10px 20px 0px 20px;
+	margin: 20px 150px;
+	overflow: visible;
 }
 
 .checkbox-container {
@@ -177,5 +182,20 @@ width: 700px;
  }
  
  /*listings_index*/
+ 
+ .right{
+	 left: 89%;
+ }
+ 
+ .left{
+	 right: 91%;
+ }
+ 
+ .example-val{
+	 position: absolute;
+	 color: white;
+	 margin-top: 10px;
+	 padding: 10px;
+ }
  
  

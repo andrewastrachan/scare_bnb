@@ -15,8 +15,7 @@ ScareBnb.Views.Slider = Backbone.View.extend ({
 	},
 	
 	getRangeInt: function(num){
-		num = num.substring(1,7);
-		return parseInt(num);
+		return parseInt(num.substring(1));
 	},
 	
 	setSliderEvents: function() {
@@ -40,7 +39,7 @@ ScareBnb.Views.Slider = Backbone.View.extend ({
 			},
 			format: {
 				  to: function ( value ) {
-					return '$' + value;
+					return '$' + parseInt(value);
 				  },
 				  from: function ( value ) {
 					return value.replace(',-', '');
