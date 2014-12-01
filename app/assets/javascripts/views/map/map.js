@@ -5,16 +5,15 @@ ScareBnb.Views.Map = Backbone.View.extend({
 		this.listenTo(this.collection, "sync", this.printBounds);
 		this.listenTo(this.collection, "add remove", this.updateMap)
 		// listen to the map. When it goes idle, get lat/long and call updateCollection
+
 	},
-	
-	printBounds: function() {
-		console.log(this._map.getBounds())
-	},
+
+	//SEARCHBOX
 	
 	attachMapSearchBox: function() {
 	  var input = document.getElementById('search-box');
 	  var searchBox = new google.maps.places.Autocomplete(input);
-		debugger
+
 		var that = this;
 		google.maps.event.addListener(searchBox, 'place_changed', function(locationObj) {
 			var bounds = this.getPlace().geometry.location;
@@ -24,6 +23,8 @@ ScareBnb.Views.Map = Backbone.View.extend({
 			that._map.setCenter(newLatLng);
 		});
 	},
+	
+	//MAP MAIN
 	
 	setMap: function(){
 		var mapOptions = {
@@ -36,7 +37,7 @@ ScareBnb.Views.Map = Backbone.View.extend({
 	
 		this._markers = []
 		this.attachMapSearchBox()
-		google.maps.event.addListener(this._map, 'idle', this.setMapFilters.bind(this))
+		google.maps.event.addListener(this._map, 'dragend', this.setMapFilters.bind(this))
 
 			
 		//register event listener
@@ -58,7 +59,11 @@ ScareBnb.Views.Map = Backbone.View.extend({
 		this.updateMap()
 	 },
 	 
+	 //also handles map marker
+	 
 	 updateMap: function() {
+		 //removes window if there is one in exitence
+		 this._window && this._window.remove();
 		 var that = this
 		 this.deleteMarkers()
 		 	this.collection.forEach(function(model){
@@ -66,10 +71,16 @@ ScareBnb.Views.Map = Backbone.View.extend({
 				      position: { lat: model.get('latitude'), lng: model.get('longitude')},
 				      title: model.get('title')
 				  });
+					
+					//sets window to instance
+					that._window = new ScareBnb.Views.MapWindow({model: model, map: that._map, marker: marker})
+					
 				that._markers.push(marker)	
 		 	});
 			this.showMarkers()
 	 },
+	 
+	 //MARKERS
 	 
 	 // Sets the map on all markers in the array.
 	 setAllMap: function(map) {
