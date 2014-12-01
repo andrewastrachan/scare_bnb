@@ -2,7 +2,6 @@ ScareBnb.Views.Map = Backbone.View.extend({
 	template: JST["map"],
 	
 	initialize: function() {
-		this.listenTo(this.collection, "sync", this.printBounds);
 		this.listenTo(this.collection, "add remove", this.updateMap)
 		// listen to the map. When it goes idle, get lat/long and call updateCollection
 
@@ -16,6 +15,7 @@ ScareBnb.Views.Map = Backbone.View.extend({
 
 		var that = this;
 		google.maps.event.addListener(searchBox, 'place_changed', function(locationObj) {
+			google.maps.event.addListenerOnce(that._map, 'idle', that.setMapFilters.bind(that));
 			var bounds = this.getPlace().geometry.location;
 			var longitude = bounds.B;
 			var latitude = bounds.k;
@@ -35,9 +35,12 @@ ScareBnb.Views.Map = Backbone.View.extend({
 		var domElement = this.$('#map-canvas');				
 		this._map = new google.maps.Map(domElement.get(0), mapOptions);
 	
-		this._markers = []
-		this.attachMapSearchBox()
-		google.maps.event.addListener(this._map, 'dragend', this.setMapFilters.bind(this))
+		this._markers = [];
+		this.attachMapSearchBox();
+
+		//only listen for idle on inital load... screws with map windows otherwise
+		google.maps.event.addListenerOnce(this._map, 'idle', this.setMapFilters.bind(this));
+		google.maps.event.addListener(this._map, 'dragend', this.setMapFilters.bind(this));
 
 			
 		//register event listener
@@ -50,13 +53,13 @@ ScareBnb.Views.Map = Backbone.View.extend({
 		var lngy = this._map.getBounds()["va"]["k"];
 		
 		//not DRY, i know
-		ScareBnb.Collections.listings.filters.latx = latx
-		ScareBnb.Collections.listings.filters.laty = laty
-		ScareBnb.Collections.listings.filters.lngx = lngx
-		ScareBnb.Collections.listings.filters.lngy = lngy
+		ScareBnb.Collections.listings.filters.latx = latx;
+		ScareBnb.Collections.listings.filters.laty = laty;
+		ScareBnb.Collections.listings.filters.lngx = lngx;
+		ScareBnb.Collections.listings.filters.lngy = lngy;
 	 
-		ScareBnb.Collections.listings.updateFilters()
-		this.updateMap()
+		ScareBnb.Collections.listings.updateFilters();
+		this.updateMap();
 	 },
 	 
 	 //also handles map marker
