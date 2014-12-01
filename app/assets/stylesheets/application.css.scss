@@ -64,6 +64,11 @@ body {
 
 /*NAVBAR*/
 
+.navbar-default {
+    background-color: black;
+    border-color: #E7E7E7;
+}
+
 .btn-sign-out {
 	margin-top: 7px;
 }
@@ -88,6 +93,10 @@ width: 700px;
 
 .logo {
 	margin-top: -14px;
+}
+
+#search-box{
+	margin-top: 8px;
 }
 
 /*Root*/

@@ -11,6 +11,20 @@ ScareBnb.Views.Map = Backbone.View.extend({
 		console.log(this._map.getBounds())
 	},
 	
+	attachMapSearchBox: function() {
+	  var input = document.getElementById('search-box');
+	  var searchBox = new google.maps.places.Autocomplete(input);
+		debugger
+		var that = this;
+		google.maps.event.addListener(searchBox, 'place_changed', function(locationObj) {
+			var bounds = this.getPlace().geometry.location;
+			var longitude = bounds.B;
+			var latitude = bounds.k;
+			var newLatLng = new google.maps.LatLng(latitude, longitude);
+			that._map.setCenter(newLatLng);
+		});
+	},
+	
 	setMap: function(){
 		var mapOptions = {
 		          center: { lat: 37.781056, lng: -122.411455},
@@ -21,8 +35,7 @@ ScareBnb.Views.Map = Backbone.View.extend({
 		this._map = new google.maps.Map(domElement.get(0), mapOptions);
 	
 		this._markers = []
-	
-		var that = this
+		this.attachMapSearchBox()
 		google.maps.event.addListener(this._map, 'idle', this.setMapFilters.bind(this))
 
 			
