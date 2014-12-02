@@ -14,7 +14,6 @@ ScareBnb.Views.Checkboxes = Backbone.View.extend({
 				roomTypes.push(roomType);
 			} 
 		}
-		debugger
 		ScareBnb.Collections.listings.filters.roomTypes = roomTypes;
 		ScareBnb.Collections.listings.updateFilters();
 	},
@@ -25,8 +24,6 @@ ScareBnb.Views.Checkboxes = Backbone.View.extend({
 			$(event.currentTarget).toggleClass('selected');
 			that.changeFilter();
     });
-		
-		
 	},
 	
 	setupCheckboxes: function() {
