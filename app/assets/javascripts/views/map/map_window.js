@@ -1,6 +1,6 @@
 ScareBnb.Views.MapWindow = Backbone.View.extend({
 	
-	template: JST["map_win"],
+	template: JST["index/map_win"],
 	
 	initialize: function(options) {
 		this.marker = options.marker

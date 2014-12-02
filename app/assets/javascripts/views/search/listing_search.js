@@ -1,5 +1,5 @@
 ScareBnb.Views.ListingSearch = Backbone.CompositeView.extend ({
-	template: JST["search_page"],
+	template: JST["index/search_page"],
 	
 	initialize: function(){
 		this.listenTo(ScareBnb.Collections.listings, "sync", this.updateColl)

@@ -47,7 +47,6 @@
 	border-top-left-radius: 0px;
 }
 
-
 .form-signin .form-control {
 	height: auto;
 	padding: 10px;
@@ -79,7 +78,7 @@ body {
 
 
 .masthead-nav {
-float: right;
+	float: right;
 }
 
 .masthead, .mastfoot, .cover-container {
@@ -105,6 +104,11 @@ width: 700px;
 
 /*Root*/
 
+.filter-label {
+	float: left;
+	color: white;
+}
+
 label {
 	color: white
 }
@@ -117,6 +121,7 @@ label {
 	position: fixed;
 	left: 0px;
 	width: 40%;
+	height: 100%;
 	border: 1px black solid;
 	overflow-y: scroll;
 }
@@ -142,22 +147,17 @@ label {
 
 .slider-container {
 	position: relative;
-	padding: 10px 20px 0px 20px;
-	margin: 20px 150px;
+	margin-top: 5%;
+	margin-left: 30%;
+	margin-right: 10%;
 	overflow: visible;
 }
 
-.checkbox-container {
+.checkbox-container, .reservation-filter-container {
 	position: relative;
-	padding: 10px 160px 0px 160px;
-	margin: 20px 0;
-	overflow: hidden;
-}
-
-.reservation-filter-container {
-	position: relative;
-	padding: 10px 160px 0px 160px;
-	margin: 20px 0;
+	margin-bottom: 10px;
+	margin-top: 5%;
+	margin-left: 30%;
 	overflow: hidden;
 }
 
@@ -168,8 +168,8 @@ label {
 }
 
 #map-canvas {
-	width: 510px;
-	height: 800px;
+	width: 100%;
+	height: 100%;
 	margin: 0; 
 }
 
@@ -219,3 +219,11 @@ label {
 	 padding: 10px;
  }
  
+ .filter-label {
+	 margin-left: 5%;
+ }
+ 
+ #ui-id-1-button {
+	 height: 100%;
+	 position: absolute;
+ }

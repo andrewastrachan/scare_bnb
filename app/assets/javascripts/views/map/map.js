@@ -1,8 +1,8 @@
 ScareBnb.Views.Map = Backbone.View.extend({
-	template: JST["map"],
+	template: JST["index/map"],
 	
 	initialize: function() {
-		this.listenTo(this.collection, "add remove", this.updateMap)
+		this.listenTo(this.collection, "add remove", this.updateMap);
 		// listen to the map. When it goes idle, get lat/long and call updateCollection
 
 	},
@@ -47,10 +47,13 @@ ScareBnb.Views.Map = Backbone.View.extend({
 	},
 	
 	setMapFilters: function() {
-		var latx = this._map.getBounds()["Fa"]["j"];
-		var laty = this._map.getBounds()["Fa"]["k"];
-		var lngx = this._map.getBounds()["wa"]["j"];
-		var lngy = this._map.getBounds()["wa"]["k"];
+		
+		var latx = this._map.getBounds().getNorthEast().lat()
+		var lngy = this._map.getBounds().getNorthEast().lng()
+		
+		var laty = this._map.getBounds().getSouthWest().lat()
+		var lngx = this._map.getBounds().getSouthWest().lng()
+		
 		
 		//not DRY, i know
 		ScareBnb.Collections.listings.filters.latx = latx;

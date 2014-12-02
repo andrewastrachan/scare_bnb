@@ -1,6 +1,6 @@
 ScareBnb.Views.Checkboxes = Backbone.View.extend({
 	
-	template: JST["checkboxes"],
+	template: JST["index/checkboxes"],
 	
 	changeFilter: function() {
 		$boxes = this.$("[name='room-type']");
@@ -26,14 +26,10 @@ ScareBnb.Views.Checkboxes = Backbone.View.extend({
     });
 	},
 	
-	setupCheckboxes: function() {
-		this.setCheckboxEvents();
-	},
-	
 	render: function(){
 		var content = this.template();
 		this.$el.html(content);
-		this.setupCheckboxes();
+		this.setCheckboxEvents();
 		
 		return this;
 	}

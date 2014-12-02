@@ -16,6 +16,57 @@ ScareBnb.Collections.Listings = Backbone.Collection.extend({
 	filters: {
 	},
 	
+	updateFilterByMap: function() {
+		var that = this;
+		var models = this.filter(function (model) {
+			var lat = model.get('latitude');
+			var lng = model.get('longitude');
+			if ((lng < that.filters.lngy && lng > that.filters.lngx) && (lat < that.filters.latx && lat > that.filters.laty)) {
+				return true;
+			} else
+			return false;
+		});
+
+		return models;
+	},
+	
+	updateFilterByPrice: function(models) {
+		var that = this;
+		var models = models.filter(function(model) {
+			var price = parseInt(model.get('price'))
+				if (price >= that.filters.lowerRange && price <= that.filters.upperRange) {
+					return true;
+				} else {
+					return false;
+				}
+		});
+
+		return models;
+	},
+	
+	updateFilterByRoomType: function(models) {
+		var that = this;
+		var models = models.filter(function(model) {
+			var roomType = model.get('room_type')
+			var includedType = false 
+			
+			for (var i = 0; i < that.filters.roomTypes.length; i++) {
+				if (roomType === that.filters.roomTypes[i]) {
+					includedType = true
+				}
+			}
+			
+			if (includedType) {
+				return true
+			} else {
+				return false
+			}	
+				
+		});
+		
+		return models;
+	},
+	
 	updateFilterByDate: function(models) {
 		var startDate = new Date(this.filters.startDate);
 		var endDate = new Date(this.filters.endDate);
@@ -43,74 +94,60 @@ ScareBnb.Collections.Listings = Backbone.Collection.extend({
 		return models;
 	},
 	
-	updateFilters: function () {
-		if (typeof this.filters.lngx != "undefined") {
-		that = this;
+	updateFilterByMaxGuests: function(models) {
+		var that = this;
+		var models = models.filter(function(model){
+			if (model.get('max_guests') >= that.filters.maxGuests){
+				return true;
+			} else {
+				return false; 
+			}
+		});
 		
-			//filtered by map
-			var models = this.filter(function (model) {this
-				var lat = model.get('latitude');
-				var lng = model.get('longitude'); 
-				if ((lng < that.filters.lngy && lng > that.filters.lngx) && (lat < that.filters.latx && lat > that.filters.laty)) {
-					return true;
-				} else
-				return false;
-			});
-
-			//filtered by price
-			if (typeof this.filters.upperRange != "undefined") {
-				var models = models.filter(function(model) {
-					var price = parseInt(model.get('price'))
-						if (price >= that.filters.lowerRange && price <= that.filters.upperRange) {
-							return true;
-						} else {
-							return false;
-						}
-				});
-			}
-			
-			//filtered by room type
-			if (typeof this.filters.roomTypes != "undefined" && this.filters.roomTypes.length > 0) {
-				var models = models.filter(function(model) {
-					var roomType = model.get('room_type')
-					var includedType = false 
-					
-					for (var i = 0; i < that.filters.roomTypes.length; i++) {
-						if (roomType === that.filters.roomTypes[i]) {
-							includedType = true
-						}
-					}
-					
-					if (includedType) {
-						return true
-					} else {
-						return false
-					}	
-						
-				});
-			}
-			
-			//filtered by date
-			if (this.filters.startDate && this.filters.endDate) {
-				var models = this.updateFilterByDate(models)
-			}
-			
-			//filtered by max guests 
-			if (this.filters.maxGuests) {
-				var models = models.filter(function(model){
-					if (model.get('max_guests') >= that.filters.maxGuests){
-						return true;
-					} else {
-						return false; 
-					}
-				});
-			}
-			
-			
-			//narrows collection
-			return this.filtered().set(models);
-			
+		return models; 
+	},
+	
+	updateFilters: function () {
+		var that = this;
+		
+		if (typeof this.filters.lngx != "undefined") {
+			var models = this.updateFilterByMap()
 		}
+
+		if (typeof this.filters.upperRange != "undefined") {
+			var models = this.updateFilterByPrice(models)
+		}
+		
+		if (typeof this.filters.roomTypes !== "undefined" && this.filters.roomTypes.length > 0) {
+			var models = this.updateFilterByRoomType(models)
+		}
+
+		if (this.filters.startDate && this.filters.endDate) {
+			var models = this.updateFilterByDate(models)
+		}
+			
+		if (this.filters.maxGuests) {
+			var models = this.updateFilterByMaxGuests(models);
+		}
+			
+		return this.filtered().set(models);
+	},
+	
+	getOrFetch: function(id) {
+		
+		var model = this.get(id);
+		
+			if (typeof model !== "undefined") {
+				model.fetch();
+			} else {
+				var model = new ScareBnb.Models.Listing({id: id});
+				model.fetch({
+					success: function(){
+						this.add(model)
+					}.bind(this)
+				});
+			}
+			return model;
 	}
 });
 

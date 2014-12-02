@@ -1,5 +1,5 @@
 ScareBnb.Views.ListingsIndex = Backbone.View.extend({
-	template: JST["listing_index"],
+	template: JST["index/listing_index"],
 	
 	initialize: function() {
 		this.listenTo(this.collection, "add remove", this.render)

@@ -5,7 +5,8 @@ ScareBnb.Routers.Router = Backbone.Router.extend({
 	},
 	
 	routes: {
-		"":"search"
+		"":"search",
+		"listings/:id":"showListing"
 	},
 	
 	search: function(){
@@ -15,9 +16,17 @@ ScareBnb.Routers.Router = Backbone.Router.extend({
 		this._swapView(listingsView)
 		ScareBnb.Collections.listings.fetch({
 			success: function(){
-				ScareBnb.Collections.listings.updateFilters()
+				ScareBnb.Collections.listings.updateFilters();
 			}
 		})
+	},
+	
+	showListing: function(id) {
+		var listing = ScareBnb.Collections.listings.getOrFetch(id);
+		var listingView = new ScareBnb.Views.ListingShow({
+			model: listing
+		});
+		
 	},
 	
 	_swapView: function(view) {
@@ -26,8 +35,8 @@ ScareBnb.Routers.Router = Backbone.Router.extend({
 		}
 		this._currentView = view;
 		this.$rootEl.html(this._currentView.render().$el)
-		
 	}
+	
 	
 	
 });

@@ -1,9 +1,5 @@
 ScareBnb.Views.ReservationFilters = Backbone.View.extend ({
-	template: JST["reservation_filters"],
-	
-	initialize: function() {
-		
-	},
+	template: JST["index/reservation_filters"],
 	
 	attachSelectMenu: function() {
 		this._selectMenu = this.$(".max-guest-list").selectmenu();   

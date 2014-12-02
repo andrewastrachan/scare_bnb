@@ -1,9 +1,5 @@
 ScareBnb.Views.Slider = Backbone.View.extend ({
-	template: JST["bells_and_whistles"],
-	
-	initalize: function() {
-		
-	},
+	template: JST["index/bells_and_whistles"],
 	
 	changeFilter: function(event) {
 		var lowerRange = this.getRangeInt($('#span-lower').html());
