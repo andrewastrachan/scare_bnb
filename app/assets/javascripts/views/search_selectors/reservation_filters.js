@@ -34,12 +34,14 @@ ScareBnb.Views.ReservationFilters = Backbone.View.extend ({
 		}
 		
 		if (this._startDate && this._endDate) {
-			this.filterMeDates
+			this.filterMeDates();
 		}
 	},
 	
 	filterMeDates: function() {
-		
+		ScareBnb.Collections.listings.filters.startDate = this._startDate;
+		ScareBnb.Collections.listings.filters.endDate = this._endDate;
+		ScareBnb.Collections.listings.updateFilters();
 	},
 	
 	render: function() {

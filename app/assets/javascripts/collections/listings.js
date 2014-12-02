@@ -16,6 +16,33 @@ ScareBnb.Collections.Listings = Backbone.Collection.extend({
 	filters: {
 	},
 	
+	updateFilterByDate: function(models) {
+		var startDate = new Date(this.filters.startDate);
+		var endDate = new Date(this.filters.endDate);
+		var that = this
+		var models = models.filter(function(model) {
+			var reservations = model.get("reservations")
+			var conflict = false
+			
+			reservations.forEach(function(reservation){
+				var reservationStartDate = new Date(reservation.start_date);
+				var reservationEndDate = new Date(reservation.end_date);
+				debugger;
+				if (startDate > reservationStartDate && startDate < reservationEndDate) {
+					conflict = true;
+				} else if (endDate > reservationStartDate && endDate < reservationEndDate){
+					conflict = true;
+				} else if (startDate < reservationStartDate && endDate > reservationEndDate) {
+					conflict = true;
+				}
+			});
+			debugger;
+			return (conflict === true ? false : true);
+		});
+		
+		return models;
+	},
+	
 	updateFilters: function () {
 		if (typeof this.filters.lngx != "undefined") {
 		that = this;
@@ -60,6 +87,10 @@ ScareBnb.Collections.Listings = Backbone.Collection.extend({
 					}	
 						
 				});
+			}
+			
+			if (this.filters.startDate && this.filters.endDate) {
+				var models = this.updateFilterByDate(models)
 			}
 			//narrows collection
 			return this.filtered().set(models);
