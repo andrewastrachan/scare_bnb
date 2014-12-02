@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.liblink
 //= require jquery.nouislider
+//= require jquery-ui
 //= require underscore
 //= require backbone
 //= require scare_bnb

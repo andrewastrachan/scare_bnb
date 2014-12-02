@@ -29,6 +29,11 @@ ScareBnb.Views.ListingSearch = Backbone.CompositeView.extend ({
 		this.addSubview(".checkboxes", checkboxView)
 	},
 	
+	attachReservationFilters: function() {
+		var reservationFilterView = new ScareBnb.Views.ReservationFilters();
+		this.addSubview(".reservation-filters", reservationFilterView) 
+	},
+	
 	render: function(){
 		var content = this.template();
 		this.$el.html(content);
@@ -36,6 +41,7 @@ ScareBnb.Views.ListingSearch = Backbone.CompositeView.extend ({
 		this.attachMap();
 		this.attachSlider();
 		this.attachCheckboxes();
+		this.attachReservationFilters();
 		return this;	
 	}
 	
