@@ -1,6 +1,11 @@
 <div class="reservation-filter-container">
 	<form>
-		<input type="text" id="start-calendar">
-		<input type="text" id="end-calendar">
+		<input type="text" id="start-calendar" class="form-control-dates">
+		<input type="text" id="end-calendar" class="form-control-dates">
+		<select class="max-guest-list">
+			<% for (var i = 1; i < 17; i++) {%>
+				<option value="<%= i %>"><%= i %></option>
+			<% } %>
+		</select>
 	</form>
 </div>

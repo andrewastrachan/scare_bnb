@@ -5,6 +5,18 @@ ScareBnb.Views.ReservationFilters = Backbone.View.extend ({
 		
 	},
 	
+	attachSelectMenu: function() {
+		this._selectMenu = this.$(".max-guest-list").selectmenu();   
+		that = this; 
+		
+		this._selectMenu.on( "selectmenuchange", function( event, ui ) {
+			var maxGuests = parseInt(ui.item.label)
+			ScareBnb.Collections.listings.filters.maxGuests = maxGuests;
+			
+			ScareBnb.Collections.listings.updateFilters();
+		});
+	},
+	
 	attachCalendars: function() {
    	this._startingCalendar = this.$( "#start-calendar" ).datepicker({
       defaultDate: "+1w",
@@ -48,6 +60,7 @@ ScareBnb.Views.ReservationFilters = Backbone.View.extend ({
 		var content = this.template();
 		this.$el.html(content);
 		this.attachCalendars();
+		this.attachSelectMenu();
 		
 		return this;
 	}

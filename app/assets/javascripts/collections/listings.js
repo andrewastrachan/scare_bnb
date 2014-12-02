@@ -69,6 +69,7 @@ ScareBnb.Collections.Listings = Backbone.Collection.extend({
 				});
 			}
 			
+			//filtered by room type
 			if (typeof this.filters.roomTypes != "undefined" && this.filters.roomTypes.length > 0) {
 				var models = models.filter(function(model) {
 					var roomType = model.get('room_type')
@@ -89,9 +90,23 @@ ScareBnb.Collections.Listings = Backbone.Collection.extend({
 				});
 			}
 			
+			//filtered by date
 			if (this.filters.startDate && this.filters.endDate) {
 				var models = this.updateFilterByDate(models)
 			}
+			
+			//filtered by max guests 
+			if (this.filters.maxGuests) {
+				var models = models.filter(function(model){
+					if (model.get('max_guests') >= that.filters.maxGuests){
+						return true;
+					} else {
+						return false; 
+					}
+				});
+			}
+			
+			
 			//narrows collection
 			return this.filtered().set(models);
 			

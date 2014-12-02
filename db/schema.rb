@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141130224431) do
+ActiveRecord::Schema.define(version: 20141202070318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20141130224431) do
     t.float    "longitude"
     t.integer  "price"
     t.string   "room_type"
+    t.integer  "max_guests"
   end
 
   create_table "reservations", force: true do |t|

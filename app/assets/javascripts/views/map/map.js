@@ -47,10 +47,10 @@ ScareBnb.Views.Map = Backbone.View.extend({
 	},
 	
 	setMapFilters: function() {
-		var latx = this._map.getBounds()["Ea"]["j"];
-		var laty = this._map.getBounds()["Ea"]["k"];
-		var lngx = this._map.getBounds()["va"]["j"];
-		var lngy = this._map.getBounds()["va"]["k"];
+		var latx = this._map.getBounds()["Fa"]["j"];
+		var laty = this._map.getBounds()["Fa"]["k"];
+		var lngx = this._map.getBounds()["wa"]["j"];
+		var lngy = this._map.getBounds()["wa"]["k"];
 		
 		//not DRY, i know
 		ScareBnb.Collections.listings.filters.latx = latx;

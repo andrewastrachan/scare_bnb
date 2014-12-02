@@ -16,7 +16,7 @@
 
 
 class Listing < ActiveRecord::Base
-  validates :owner_id, :description, :title, :address, :price, :room_type, presence: true
+  validates :owner_id, :description, :title, :address, :price, :room_type, :max_guests, presence: true
   geocoded_by :address 
   after_validation :geocode         
   
