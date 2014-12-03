@@ -19,7 +19,15 @@
 class Listing < ActiveRecord::Base
   validates :owner_id, :description, :title, :address, :price, :room_type, :max_guests, presence: true
   geocoded_by :address 
-  after_validation :geocode  
+  after_validation :geocode 
+  after_validation :reverse_geocode
+
+  reverse_geocoded_by :latitude, :longitude do |obj,results|
+    if geo = results.first
+      obj.city = geo.city
+      obj.state = geo.state
+    end
+  end
 
   has_many :images, 
   class_name: "Image",
