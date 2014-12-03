@@ -65,6 +65,21 @@ ScareBnb.Views.Map = Backbone.View.extend({
 	 },
 	 
 	 //also handles map marker
+
+	 window: function() {
+	 	if (typeof this._window === "undefined") {
+	 		this._window = new ScareBnb.Views.MapWindow()
+	 	}
+	 	
+	 	return this._window
+	 },
+
+	 setWindow: function(marker, model) {
+	 	this.window().marker = marker;
+		this.window().model = model;
+		this.window().map = this._map;
+		this.window().createWindow();
+	 },
 	 
 	 updateMap: function() {
 		 //removes window if there is one in exitence
@@ -76,9 +91,14 @@ ScareBnb.Views.Map = Backbone.View.extend({
 				      position: { lat: model.get('latitude'), lng: model.get('longitude')},
 				      title: model.get('title')
 				  });
+
+				google.maps.event.addListener(marker, 'click', function() {
+					that.setWindow(marker, model)
+				});
 					
+
 					//sets window to instance
-					that._window = new ScareBnb.Views.MapWindow({model: model, map: that._map, marker: marker})
+					
 					
 				that._markers.push(marker)	
 		 	});
@@ -91,6 +111,7 @@ ScareBnb.Views.Map = Backbone.View.extend({
 	 setAllMap: function(map) {
 	   for (var i = 0; i < this._markers.length; i++) {
 	     this._markers[i].setMap(map);
+	     
 	   }
 	 },
 

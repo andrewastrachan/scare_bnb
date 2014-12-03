@@ -1,19 +1,12 @@
 # == Schema Information
 #
-# Table name: listings
+# Table name: images
 #
-#  id          :integer          not null, primary key
-#  owner_id    :integer
-#  title       :string(255)
-#  description :text
-#  created_at  :datetime
-#  updated_at  :datetime
-#  address     :string(255)
-#  latitude    :float
-#  longitude   :float
-#  price       :integer
-#  room_type   :string(255)
-#  max_guests  :integer
+#  id         :integer          not null, primary key
+#  url        :string(255)
+#  listing_id :integer
+#  created_at :datetime
+#  updated_at :datetime
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

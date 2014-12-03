@@ -7,3 +7,6 @@ json.reservations @listing.reservations.where(status: 'APPROVED') do |reservatio
 	json.start_date reservation.start_date
 	json.end_date reservation.end_date
 end
+json.images @listing.images do |image|
+	json.url image.url
+end

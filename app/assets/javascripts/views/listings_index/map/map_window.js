@@ -2,36 +2,33 @@ ScareBnb.Views.MapWindow = Backbone.View.extend({
 	
 	template: JST["index/map_win"],
 	
-	initialize: function(options) {
-		this.marker = options.marker
-		this.map = options.map
-		this.model = options.model
-
-		this.attachListener();
-	},
-	
 	setCarousel: function() {
-		this._carousel = this.$("#show-carousel").owlCarousel({
-      slideSpeed : 300,
-      paginationSpeed : 400,
-      singleItem:true
-		});
 
-	},
-	
-	attachListener: function() {
-		that = this;
-		var content = that.template({listing: that.model});
-		this.$el.html(content);
-		this.setCarousel();
-		debugger;
-		
-	  this.infoWindow = new google.maps.InfoWindow({
-			content: that.$el.html()
-	  });
-	
-		google.maps.event.addListener(this.marker, 'click', function() {
-			that.infoWindow.open(that.map, that.marker);
+		this._carousel = window.$("#show-carousel").owlCarousel({
+	      paginationSpeed : 400,
+	      singleItem:true
 		});
 	},
+
+	createWindow: function() {
+
+		if (typeof this.infoWindow !== "undefined") {
+			this.infoWindow.close();
+		}
+
+		var that = this;
+		var windowContent = this.template({listing: this.model, images: this.model.images()});
+		this.$el.html(windowContent);
+
+		this.infoWindow = new google.maps.InfoWindow({
+			content: this.$el.html()
+	  	});
+
+	  	this.infoWindow.open(this.map, this.marker);
+
+		google.maps.event.addListener(this.infoWindow, 'domready', function(){
+			that.setCarousel()
+		}); 
+	}
+
 }); 

@@ -2,6 +2,22 @@ ScareBnb.Collections.Listings = Backbone.Collection.extend({
 	url: "/api/listings",
 	
 	model: ScareBnb.Models.Listing,
+
+	images: function() {
+    	if(!this._images) {
+      		this._images = new ScareBnb.Collections.Images({ listing: this });
+    	}
+
+    	return this._images;
+	},
+
+	parse: function(response) { 
+		if (response.images) {
+			this.images().set(response.images, { parse: true });
+		}
+	
+		return response;
+	},
 	
 	filtered: function () {
 		if (!this._filtered) {
@@ -87,7 +103,7 @@ ScareBnb.Collections.Listings = Backbone.Collection.extend({
 					conflict = true;
 				}
 			});
-			debugger;
+
 			return (conflict === true ? false : true);
 		});
 		

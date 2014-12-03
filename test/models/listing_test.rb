@@ -11,6 +11,9 @@
 #  address     :string(255)
 #  latitude    :float
 #  longitude   :float
+#  price       :integer
+#  room_type   :string(255)
+#  max_guests  :integer
 #
 
 require 'test_helper'

@@ -8,16 +8,17 @@ ScareBnb.Views.Carousel = Backbone.View.extend({
 	
 	setCarousel: function() {
 		this._carousel = this.$("#show-carousel").owlCarousel({
-			navigation : true, // Show next and prev buttons
-      slideSpeed : 300,
-      paginationSpeed : 400,
-      singleItem:true
+			navigation : true,
+	        slideSpeed : 300,
+	        paginationSpeed : 400,
+	        singleItem:true
 		});
 
 	},
 	
 	render: function() {
-		var content = this.template();
+		debugger
+		var content = this.template({images: this.collection});
 		this.$el.html(content);
 		
 		this.setCarousel();

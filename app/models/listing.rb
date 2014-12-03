@@ -11,14 +11,20 @@
 #  address     :string(255)
 #  latitude    :float
 #  longitude   :float
+#  price       :integer
+#  room_type   :string(255)
+#  max_guests  :integer
 #
-
-
 
 class Listing < ActiveRecord::Base
   validates :owner_id, :description, :title, :address, :price, :room_type, :max_guests, presence: true
   geocoded_by :address 
-  after_validation :geocode         
+  after_validation :geocode  
+
+  has_many :images, 
+  class_name: "Image",
+  foreign_key: :listing_id,
+  primary_key: :id       
   
   has_many :reservations,
   class_name: "Reservation",
