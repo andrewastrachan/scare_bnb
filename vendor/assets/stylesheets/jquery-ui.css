@@ -604,16 +604,18 @@ button.ui-button::-moz-focus-inner {
 .ui-selectmenu-menu {
 	padding: 0;
 	margin: 0;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	display: none;
+	z-index: 901;
 }
 .ui-selectmenu-menu .ui-menu {
 	overflow: auto;
 	/* Support: IE7 */
 	overflow-x: hidden;
 	padding-bottom: 1px;
+	z-index: 901;
 }
 .ui-selectmenu-menu .ui-menu .ui-selectmenu-optgroup {
 	font-size: 1em;
@@ -623,9 +625,11 @@ button.ui-button::-moz-focus-inner {
 	margin: 0.5em 0 0 0;
 	height: auto;
 	border: 0;
+	z-index: 901;
 }
 .ui-selectmenu-open {
 	display: block;
+	z-index: 901;
 }
 .ui-selectmenu-button {
 	display: inline-block;

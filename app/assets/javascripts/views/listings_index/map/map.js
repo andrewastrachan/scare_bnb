@@ -74,7 +74,7 @@ ScareBnb.Views.Map = Backbone.View.extend({
 	 	return this._window
 	 },
 
-	 setWindow: function(marker, model) {
+	 setWindow: function(marker, model) { 
 	 	this.window().marker = marker;
 		this.window().model = model;
 		this.window().map = this._map;
@@ -89,7 +89,8 @@ ScareBnb.Views.Map = Backbone.View.extend({
 		 this.collection.forEach(function(model){
 				var marker = new google.maps.Marker({
 				      position: { lat: model.get('latitude'), lng: model.get('longitude')},
-				      title: model.get('title')
+				      title: model.get('title'),
+				      animation: google.maps.Animation.DROP
 				  });
 
 				google.maps.event.addListener(marker, 'click', function() {

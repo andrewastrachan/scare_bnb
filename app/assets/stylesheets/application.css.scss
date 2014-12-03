@@ -100,7 +100,11 @@ width: 700px;
 }
 
 #search-box{
-	margin-top: 8px;
+	margin-top: 10px;
+	width: 250px;
+	height: 32px;
+	border-radius: 2px;
+	border-color: #e74d3d;
 }
 
 /*Root*/
@@ -116,6 +120,10 @@ label {
 
 .root-container {
 	margin-top: 50px;
+}
+
+.ui-menu-item {
+	z-index: 901
 }
 
 .map-view {
@@ -227,6 +235,10 @@ label {
 	 height: 100%;
 	 position: absolute;
  }
+
+.listing-box {
+	z-index: -1;
+}
  
  /* listing show */
  
@@ -239,7 +251,7 @@ label {
  
  .carousel-container {
 	 width: 100%;
-	 height: 550px;
+	 height: 100%;
 	 position: fixed;
 	 background-color: grey;
  }
@@ -284,6 +296,47 @@ label {
 		position: relative;
 		height: 100%;
 	}
+
+/* show */ 
+
+.show-container-main {
+	background-color: red;
+	height: 100%;
+	width: 100%;
+	margin-top: 40%;
+	position: relative;
+}
+
+.booking-container {
+	height: 40%;
+	width: 22%;
+	position: static;
+	float: right;
+	margin-top: -40px;
+	margin-right: 135px;
+	background-color: rgba(133, 133, 133, 0.39);
+	border: 1px dashed rgb(137, 233, 255);
+}
+
+.price {
+	background-color: rgb(96, 96, 96);
+	width: 100%;
+	height: 13%;
+	border-bottom: 1px dashed yellow;
+	color: whitesmoke;
+}
+
+.price-amount {
+	display: inline-block;
+	margin-top: -22px;
+}
+
+.price-timeline {
+	display: inline-block;
+	float: right;
+	padding-top: 17px;
+}
+
 
 
  
