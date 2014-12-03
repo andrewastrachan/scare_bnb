@@ -1,0 +1,18 @@
+<div class="listing-box">
+	<div class="image-box">
+		<div id="show-carousel" class="owl-carousel">
+				<div class="item"><img src="https://orringrey.files.wordpress.com/2014/10/univ_psycho_frame_a.jpg"></div>
+		
+				<div class="item"><img src="https://www.petfinder.com/wp-content/uploads/2012/11/99233806-bringing-home-new-cat-632x475.jpg"/></div>
+		
+		</div>
+	</div>
+		<a href="#/listings/<%=listing.escape("id")%>"
+			<div class="listing-text">
+				<%=listing.escape('title')%>
+				Price:<%=listing.escape('price')%>
+				room type:<%=listing.escape('room_type')%>
+			</div>
+		</a>
+</div>
+

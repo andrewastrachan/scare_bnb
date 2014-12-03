@@ -16,7 +16,8 @@
  *= require jquery-ui
  *=require jquery.nouislider
  *=require jquery-ui.structure
- *=require jquery-ui.theme.css
+ *=require jquery-ui.theme
+ *=require owl.carousel
  */
 
 @import "bootstrap-sprockets";
@@ -68,7 +69,7 @@ body {
 /*NAVBAR*/
 
 .navbar-default {
-    background-color: black;
+    background-color: rgb(133, 150, 152);
     border-color: #E7E7E7;
 }
 
@@ -227,3 +228,63 @@ label {
 	 height: 100%;
 	 position: absolute;
  }
+ 
+ /* listing show */
+ 
+ .container-show {
+	 width: 100%;
+	 height: 100%;
+	 position: fixed;
+	 background-color: white;
+ } 
+ 
+ .carousel-container {
+	 width: 100%;
+	 height: 550px;
+	 position: fixed;
+	 background-color: grey;
+ }
+ 
+ #show-carousel .item img{
+     display: block;
+     width: auto;
+		 margin: 0 auto;
+     height: 100%;
+ }
+ 
+ .owl-carousel {
+	 position: absolute;
+	 width: 100%;
+	 height: 100%;
+ }
+ 
+ .owl-carousel .owl-wrapper-outer {
+	 overflow: hidden;
+	 position: relative;
+	 width: 100%;
+	 height: 100%;
+	}
+	
+	.owl-wrapper {
+		height: 100%;
+		display: block;
+		position: absolute;
+	}
+	
+	.owl-item {
+		height: 100%;
+		background-color: black;
+	}
+	
+	.item {
+		height: 100%;
+		width: auto;
+	}
+	
+	.photo-container {
+		position: relative;
+		height: 100%;
+	}
+
+
+ 

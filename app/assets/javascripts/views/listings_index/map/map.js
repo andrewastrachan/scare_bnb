@@ -4,7 +4,6 @@ ScareBnb.Views.Map = Backbone.View.extend({
 	initialize: function() {
 		this.listenTo(this.collection, "add remove", this.updateMap);
 		// listen to the map. When it goes idle, get lat/long and call updateCollection
-
 	},
 
 	//SEARCHBOX
@@ -34,7 +33,7 @@ ScareBnb.Views.Map = Backbone.View.extend({
 		        };
 		var domElement = this.$('#map-canvas');				
 		this._map = new google.maps.Map(domElement.get(0), mapOptions);
-	
+		// map = this._map
 		this._markers = [];
 		this.attachMapSearchBox();
 
@@ -72,7 +71,7 @@ ScareBnb.Views.Map = Backbone.View.extend({
 		 this._window && this._window.remove();
 		 var that = this
 		 this.deleteMarkers()
-		 	this.collection.forEach(function(model){
+		 this.collection.forEach(function(model){
 				var marker = new google.maps.Marker({
 				      position: { lat: model.get('latitude'), lng: model.get('longitude')},
 				      title: model.get('title')

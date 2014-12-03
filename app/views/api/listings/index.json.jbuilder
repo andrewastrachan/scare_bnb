@@ -1,4 +1,5 @@
 json.array! @listings do |listing|
+	json.id listing.id
 	json.title listing.title
 	json.latitude listing.latitude
 	json.longitude listing.longitude

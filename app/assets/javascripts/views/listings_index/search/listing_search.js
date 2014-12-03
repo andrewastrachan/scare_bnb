@@ -9,40 +9,51 @@ ScareBnb.Views.ListingSearch = Backbone.CompositeView.extend ({
 		ScareBnb.Collections.listings.updateFilters()
 	},
 	
-	attachMap: function(){
-		var mapShow = new ScareBnb.Views.Map({collection: this.collection})
-		this.addSubview(".map", mapShow)
+	addMap: function(){
+		this._mapShow = new ScareBnb.Views.Map({
+			collection: this.collection
+		})
+		this.addSubview(".map", this._mapShow)
 	},
 	
-	attachListings: function(){
+	addListings: function(){
 		var listingsIndex = new ScareBnb.Views.ListingsIndex({collection: this.collection});
 		this.addSubview(".lists", listingsIndex);
 	},
 	
-	attachSlider: function() {
+	addSlider: function() {
 		var sliderView = new ScareBnb.Views.Slider();
 		this.addSubview(".bells-and-whistles", sliderView);
 	},
 	
-	attachCheckboxes: function() {
+	addCheckboxes: function() {
 		var checkboxView = new ScareBnb.Views.Checkboxes();
 		this.addSubview(".checkboxes", checkboxView)
 	},
 	
-	attachReservationFilters: function() {
+	addReservationFilters: function() {
 		var reservationFilterView = new ScareBnb.Views.ReservationFilters();
 		this.addSubview(".reservation-filters", reservationFilterView) 
 	},
 	
 	render: function(){
+		console.log('rendering search index');
 		var content = this.template();
 		this.$el.html(content);
-		this.attachListings();
-		this.attachMap();
-		this.attachSlider();
-		this.attachCheckboxes();
-		this.attachReservationFilters();
+		
+		this.attachSubviews();
 		return this;	
+	},
+	
+	onRender: function () {
+		console.log('onRender search index');
+		this.addListings();
+		this.addMap();
+		this.addSlider();
+		this.addCheckboxes();
+		this.addReservationFilters();
+		this._mapShow.setMap();
+		
 	}
 	
 });

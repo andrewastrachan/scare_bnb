@@ -10,23 +10,25 @@ ScareBnb.Routers.Router = Backbone.Router.extend({
 	},
 	
 	search: function(){
-		var listingsView = new ScareBnb.Views.ListingSearch({
+		this._listingsView = new ScareBnb.Views.ListingSearch({
 			collection: ScareBnb.Collections.listings.filtered()
 		});
-		this._swapView(listingsView)
+		this._swapView(this._listingsView)
+		
 		ScareBnb.Collections.listings.fetch({
 			success: function(){
 				ScareBnb.Collections.listings.updateFilters();
 			}
-		})
+		});
 	},
 	
 	showListing: function(id) {
 		var listing = ScareBnb.Collections.listings.getOrFetch(id);
-		var listingView = new ScareBnb.Views.ListingShow({
+		this._listingView = new ScareBnb.Views.ListingShow({
 			model: listing
 		});
 		
+		this._swapView(this._listingView);
 	},
 	
 	_swapView: function(view) {
@@ -34,7 +36,9 @@ ScareBnb.Routers.Router = Backbone.Router.extend({
 			this._currentView.remove()
 		}
 		this._currentView = view;
-		this.$rootEl.html(this._currentView.render().$el)
+		this.$rootEl.html(this._currentView.render().$el);
+		
+		view.onRender && view.onRender();
 	}
 	
 	
