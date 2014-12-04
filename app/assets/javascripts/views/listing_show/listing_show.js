@@ -11,7 +11,8 @@ ScareBnb.Views.ListingShow = Backbone.CompositeView.extend({
 	},
 	
 	render: function() {
-		var content = this.template();
+		debugger
+		var content = this.template({listing: this.model});
 		this.$el.html(content);
 		if (this.model.images()) {
 			this.attachCarousel();
