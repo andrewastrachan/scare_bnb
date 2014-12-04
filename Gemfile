@@ -13,6 +13,7 @@ gem 'bcrypt'
 gem 'jbuilder', '~> 2.0'
 gem 'bootstrap-sass'
 gem 'geocoder'
+gem 'gravatar-ultimate'
 gem 'newrelic_rpm'
 gem 'backbone-on-rails'
 gem 'sdoc', '~> 0.4.0',          group: :doc

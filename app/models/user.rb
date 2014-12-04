@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   
   attr_reader :password
   after_initialize :ensure_session_token
+  after_validation :set_gravatar
   
   #image logic?
   
@@ -32,6 +33,10 @@ class User < ActiveRecord::Base
     class_name: "Listing",
     foreign_key: :owner_id,
     primary_key: :id
+
+  def set_gravatar
+    self.gravatar_url = Gravatar.new(self.email).image_url
+  end
   
   
   def self.find_by_credentials(user_params)

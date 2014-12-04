@@ -14,7 +14,7 @@
 
 class Reservation < ActiveRecord::Base
   validates :status, :start_date, :end_date, :requester_id, :listing_id, presence: true
-  before_create :set_status 
+  before_validation :set_status 
   
   belongs_to :requester,
   class_name: "User",

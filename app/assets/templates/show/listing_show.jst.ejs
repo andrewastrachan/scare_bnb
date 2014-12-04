@@ -9,8 +9,10 @@
 		<!-- span across the whole thing --> 
 
 		<div class="listing-profile-title-box listing-container">
+
+
 			<div class="profile-circle">
-				<img class="profile-image" src = "http://www.pclodge.com/wp-content/uploads/2014/08/placeholder.png">
+				<img class="profile-image" src="http://americanmuslimconsumer.com/wp-content/uploads/2013/09/blank-user.jpg" alt="<%= this.model.owner().escape('gravatar_url') %>">
 			</div>
 
 			<div class="listing-title">
@@ -27,9 +29,16 @@
 			About This Listing
 		</h4>
 		
-		<p>This is where the listing Description goes, it will be populated by a short summary of the space and what it has to offer</p>
+		<p><%= listing.escape('summary') %></p>
 
-		<div>Image goes here</div>
+		<div>
+			<% if (listing.images().models.length > 0) { %>
+
+				<img class = "image-box" src="<%= listing.images().models[0].escape('url') %>"
+
+			<% } %>
+
+			</div>
 
 		<hr>
 
@@ -45,7 +54,7 @@
 
 	<div class="booking-container">
 		<div class="price">
-			<div class="price-amount"><h1>$100</h1></div>
+			<div class="price-amount"><h1>$<%= listing.escape('price') %></h1></div>
 			<div class="price-timeline">Per Night</div>
 		</div>
 
@@ -57,19 +66,19 @@
 					    <div class="input-group date">
 					      	<label for="check-in" class="booking-label">Check In</label>
 
-					      	<input id="check-in" class="booking-form-input" type="text" name="booking[check_in]" placeholder="yyyy/mm/dd">
+					      	<input id="check-in" class="booking-form-input" type="text" name="reservation[check_in]" placeholder="mm/dd/yyyy">
 					    </div>
 
 					    <div class="input-group date">
 					      	<label for="check-out" class="booking-label">Check Out</label>
 
-					      	<input id="check-out" class="booking-form-input" type="text" name="booking[check_out]" placeholder="yyyy/mm/dd">
+					      	<input id="check-out" class="booking-form-input" type="text" name="resevation[check_out]" placeholder="mm/dd/yyyy">
 					    </div>
 
 				 	</div>
 
 				    
-					<button type="submit" class="booking-button">Request to Book</button>
+					<button type="submit" class="booking-button button-waiting">Request to Book</button>
 				</form>
 			</div>
 		<div> 	

@@ -15,6 +15,7 @@
 //= require jquery.liblink
 //= require jquery.nouislider
 //= require jquery-ui
+//= require jquery.serializejson
 //= require owl.carousel
 //= require underscore
 //= require backbone

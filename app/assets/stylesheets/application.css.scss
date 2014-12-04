@@ -69,8 +69,8 @@ body {
 /*NAVBAR*/
 
 .navbar-default {
-    background-color: #393939;
-    border-color: #393939;
+	background-color: #EEEEEE;
+	border-color: #EEEEEE;
 }
 
 .btn-sign-out {
@@ -104,7 +104,7 @@ width: 700px;
 	width: 250px;
 	height: 32px;
 	border-radius: 2px;
-	border-color: #e74d3d;
+	border-color: #B4B2B2;
 }
 
 /*Root*/
@@ -248,7 +248,7 @@ label {
 	 background-color: grey;
  }
  
- #show-carousel .item img{
+ #show-carousel .item img, #show-carousel .item-mini img{
      display: block;
      width: auto;
 		 margin: 0 auto;
@@ -282,6 +282,11 @@ label {
 	.item {
 		height: auto;
 		width: 100%;
+	}
+
+	.item-mini {
+		height: 100%;
+		width: 100%
 	}
 	
 	.photo-container {
@@ -370,15 +375,15 @@ label {
 }
 
 .booking-button {
-	background-color: #FF5A5F;
 	border-style: solid;
-	border-color: #FF5A5F;
 	border-radius: 2px;
 	color: white;
-	padding-left: 22%;
-	padding-right: 23%;
-	padding-top: 3%;
-	padding-bottom: 4%;
+	height: 44px;
+	width: 250px;
+	/* padding-left: 22%; */
+	/* padding-right: 23%; */
+	/* padding-top: 3%; */
+	/* padding-bottom: 4%; */
 	font-size: 16px;
 	margin-bottom: 10px;
 	margin-left: 13px;
@@ -437,7 +442,6 @@ hr {
 }
  
 .description-text {
-	float: right;
 	margin-left: 100px;
 }
 
@@ -448,3 +452,15 @@ hr {
 #description-here {
 	margin-top: 10px;
 }
+
+.button-waiting {
+	background-color: #FF5A5F;
+	border-color: #FF5A5F;
+}
+
+.button-success {
+	background-color: #5cb85c;
+	border-color: #5cb85c;
+}
+
+
