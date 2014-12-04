@@ -242,17 +242,9 @@ label {
  
  /* listing show */
  
- .container-show {
-	 width: 100%;
-	 height: 100%;
-	 position: fixed;
-	 background-color: white;
- } 
- 
  .carousel-container {
 	 width: 100%;
-	 height: 100%;
-	 position: fixed;
+	 height: 475px;
 	 background-color: grey;
  }
  
@@ -288,8 +280,8 @@ label {
 	}
 	
 	.item {
-		height: 100%;
-		width: auto;
+		height: auto;
+		width: 100%;
 	}
 	
 	.photo-container {
@@ -300,22 +292,29 @@ label {
 /* show */ 
 
 .show-container-main {
+	margin-top: -9px;
 	background-color: rgb(201, 195, 195);
-	height: 100%;
-	width: 100%;
-	margin-top: 40%;
 	position: relative;
 }
 
 .booking-container {
 	width: 22%;
-	position: initial;
-	float: right;
-	margin-top: -166px;
-	margin-right: 135px;
+	left: 67%;
+	top: -41px;
 	background-color: rgba(133, 133, 133, 0);
 	border: 1px solid #969696;
 	border-radius: 2px;
+	position:absolute;
+
+}
+
+.listing-container {
+	padding-top: 15px;
+	margin-top: 10px;
+	margin-left: 18%;
+	width: 42%;
+	margin-right: auto;
+	min-height: 2px;
 }
 
 .price {
@@ -386,11 +385,46 @@ label {
 }
 
 .listing-profile-title {
-	height: 126px;
-	width: 100%;
+	height: 125px;
 	background-color: white;
+	border-bottom: 1px solid gainsboro;
 }
 
+.listing-profile-title-box {
+	min-height: 125px;
+}
 
+.profile-circle {
+	float: left;
+	width: 100px;
+	height: 100px;
+	overflow: hidden;
+	border: 1px solid #969696;
+	border-radius: 50px;
+}
+
+.profile-image {
+	width: 100%;
+}
+
+.listing-title {
+	margin-left: 125px;
+	margin-top: -18px;
+}
+
+.listing-location {
+	margin-left: 125px;
+	margin-top: -10px;
+	color: darkgrey;
+}
+
+h1, .h1, h2, .h2, h3, .h3 {
+	margin-top: 20px;
+	margin-bottom: 10px;
+};
+
+.listing-text {
+	color: rgb(115, 113, 113);
+}
 
  
