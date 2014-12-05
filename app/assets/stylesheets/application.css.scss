@@ -69,7 +69,7 @@ body {
 /*NAVBAR*/
 
 .navbar-default {
-	background-color: #EEEEEE;
+	background-color: rgb(255, 255, 255);
 	border-color: #C9C9C9;
 }
 
@@ -127,7 +127,7 @@ width: 700px;
 
 .filter-label {
 	float: left;
-	color: white;
+	color: rgb(144, 142, 142);
 }
 
 label {
@@ -153,20 +153,37 @@ label {
 .sidebar {
 	position: fixed;
 	right: 0px;
-	height: 250px;
+	height: 275px;
 	width: 60%;
-	background-color: rgb(68, 78, 89);
-	overflow-y: scroll;
+	background-color: white;
+	/* overflow-y: scroll; */
 	z-index: 900;
+	border-bottom: 1px solid rgb(194, 194, 194);
+}
+
+.sidebar-span {
+	width: 686px;
+	border-color: rgb(231, 231, 231);
+}
+
+.form-control-dates {
+	color: #555;
+	border: 1px solid #ccc;
+	border-radius: 0px;
+	height: 32px;
+	width: 139px;
+	margin-right: 10px;
+	border-radius: 1px;
 }
 
 .sidebar-lists {
 	position: absolute;
-	margin-top: 251px;
+	margin-top: 275px;
 	right: 0px;
 	width: 60%;
 	overflow-y: scroll;
-	padding-left: 50px;
+	padding-left: 15px;
+	padding-top: 10px;
 }
 
 .slider-container {
@@ -180,15 +197,24 @@ label {
 .checkbox-container, .reservation-filter-container {
 	position: relative;
 	margin-bottom: 10px;
-	margin-top: 5%;
+	margin-top: 20px;
 	margin-left: 30%;
 	overflow: hidden;
 }
 
-.form-control-dates {
+.room-type-label {
+	margin-left: 50px;
+}
+
+#ui-id-1-button {
 	color: #555;
 	border: 1px solid #ccc;
-	border-radius: 2px;
+	border-radius: 0px;
+	height: 32px;
+}
+
+span#ui-id-1-button {
+	width: 139px;
 }
 
 #map-canvas {
@@ -196,6 +222,7 @@ label {
 	height: 100%;
 	margin: 0; 
 }
+
 
 #map {
    width: 500px;
@@ -213,12 +240,12 @@ label {
 	 width: 200px;
  }
  
- .listing-box{
-	 height: 225px;
-	 width: 320px;
-	 float: left;
-	 margin: 10px;
- }
+.listing-box {
+	height: 320px;
+	width: 345px;
+	float: left;
+	margin: 10px;
+}
  
  .image-box{
 	 height: 77%;
@@ -227,6 +254,13 @@ label {
  }
  
  /*listings_index*/
+
+ ui-selectmenu-button ui-widget ui-state-default ui-corner-all {
+	width: 150px;
+	background-color: white;
+	color: black;
+	border-radius: 0px;
+ }
  
  .right{
 	 left: 89%;
@@ -236,12 +270,12 @@ label {
 	 right: 91%;
  }
  
- .example-val{
-	 position: absolute;
-	 color: white;
-	 margin-top: 10px;
-	 padding: 10px;
- }
+.example-val {
+	position: absolute;
+	color: rgb(144, 142, 142);
+	margin-top: 10px;
+	padding: 10px;
+}
  
  .filter-label {
 	 margin-left: 5%;
@@ -317,6 +351,11 @@ label {
 		margin-top: -10px;
 		text-align: center;
 		color: rgb(169, 169, 169);
+	}
+
+	.img-room-type {
+		height: 50px;
+		margin-left: 35px;
 	}
 
 /* show */ 
@@ -604,4 +643,72 @@ a:hover {
 
 .request-picture {
 
+}
+
+
+
+
+/* No UI edits */ 
+
+
+.noUi-handle {
+	border: 1px solid #D9D9D9;
+	border-radius: 2px;
+	background: #FFF;
+	cursor: default;
+	box-shadow: inset 0 0 1px #FFF, inset 0 1px 7px #FFFFFF, 0 3px 6px -3px #FFF;
+}
+
+.noUi-horizontal .noUi-handle {
+	width: 34px;
+	height: 28px;
+	left: -17px;
+	top: -12px;
+}
+
+.noUi-handle:before, .noUi-handle:after {
+	content: "";
+	display: block;
+	position: absolute;
+	height: 11px;
+	width: 1px;
+	background: #D9D3CC;
+	left: 5px;
+	top: 3px;
+}
+
+
+.noUi-target.noUi-connect {
+	background: rgba(231, 77, 61, 0.75);
+	height: 3px;
+	margin-top: auto;
+	margin-bottom: auto;
+	box-shadow: inset 0 0 3px rgba(51,51,51,0.45);
+	-webkit-transition: background 450ms;
+	transition: background 450ms;
+	transition-property: background;
+	transition-duration: 450ms;
+	transition-timing-function: initial;
+	transition-delay: initial;
+}
+
+.noUi-connect {
+	background: rgba(231, 77, 61, 0.75);
+	height: 3px;
+	margin-top: auto;
+	margin-bottom: auto;
+	box-shadow: inset 0 0 3px rgba(51,51,51,0.45);
+	-webkit-transition: background 450ms;
+	transition: background 450ms;
+	transition-property: background;
+	transition-duration: 450ms;
+	transition-timing-function: initial;
+	transition-delay: initial;
+}
+
+.noUi-base {
+	width: 96%;
+	height: 100%;
+	float: right;
+	position: relative;
 }

@@ -11,6 +11,7 @@ gem 'jquery-rails', "~> 2.3.0"
 gem 'jquery-nouislider-rails'
 gem 'bcrypt'
 gem 'jbuilder', '~> 2.0'
+gem 'js_assets'
 gem 'bootstrap-sass'
 gem 'geocoder'
 gem 'gravatar-ultimate'
