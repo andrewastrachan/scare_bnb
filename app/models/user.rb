@@ -34,6 +34,8 @@ class User < ActiveRecord::Base
     foreign_key: :owner_id,
     primary_key: :id
 
+  has_many :reservations, through: :listings
+
   def set_gravatar
     self.gravatar_url = Gravatar.new(self.email).image_url
   end

@@ -13,8 +13,8 @@
 #
 
 class Reservation < ActiveRecord::Base
-  validates :status, :start_date, :end_date, :requester_id, :listing_id, presence: true
-  before_validation :set_status 
+  validates :start_date, :end_date, :requester_id, :listing_id, presence: true
+  before_create :set_status 
   
   belongs_to :requester,
   class_name: "User",
@@ -25,6 +25,8 @@ class Reservation < ActiveRecord::Base
   class_name: "Listing",
   foreign_key: :listing_id,
   primary_key: :id
+
+  has_one :user, through: :listing
   
   def set_status
     self.status = "PENDING"

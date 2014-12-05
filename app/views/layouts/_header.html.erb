@@ -20,14 +20,19 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.name %><span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Your Trips</a></li>
+                <li><a href="#/trips">Your Trips</a></li>
+                <li><a href="#/requests">Requests 
+                  <% if current_user.reservations.where(status: "PENDING").count > 0 %> 
+                    <div class="request-count"><%= current_user.reservations.where(status: "PENDING").count %></div>
+                  <% end %>
+                </a></li>
                 <li><a href="#">Edit Profile</a></li>
                 <li><a href="#">Account</a></li>
                 <li class="divider"></li>
-								<li><a href="#">Log Out</a></li>
+								<li><%= button_to "Sign Out", session_url, method: :delete, class: "btn btn-sign-out"  %></li>
               </ul>
             </li>
-						<li><%= button_to "Sign Out", session_url, method: :delete, class: "btn btn-primary btn-sign-out"  %> </li>
+						
             <!-- <span class="sr-only">(current)</span></a></li> -->
           </ul>
         </div>

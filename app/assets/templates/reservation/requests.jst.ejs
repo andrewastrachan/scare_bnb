@@ -1,0 +1,62 @@
+
+<div class="reservation-container">
+
+  <% reservations.forEach(function(reservation){ %>
+
+    <div id="listings" class="container request-listing-container">
+
+      <div class="user-data-holder">
+        <div class="reserving-user">
+          <a href="#/requests">
+            <div class="profile-circle">
+              <img class="profile-image" src="<%= reservation.requester().escape("gravatar_url") %>" %>">
+            </div>
+          </a>
+
+          <div class="request-user-name">
+            <%= reservation.requester().escape("name") %>
+          </div>
+        </div>
+
+        <div class="reserving-dates">
+          <div class="check-date">
+            <strong>Check In:</strong> <%= reservation.escape("start_date") %>
+          </div>
+
+          <div class="check-date">
+            <strong>Check Out:</strong> <%= reservation.escape("end_date") %>
+          </div>
+
+          <div class="button-group">
+
+                <input type="hidden" name=reservation[status] value="Declined">
+                <button class="accept-button" data-id="<%= reservation.id %>">Accept</button>
+
+                <input type="hidden" name=reservation[status] value="Declined">
+                <button class="decline-button" data-id="<%= reservation.id %>">Decline</button>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="request-picture">
+        <a href="#/listings/<%= reservation.escape("listing_id") %>">
+          <img src="<%=reservation.escape('listing_image')%>" class="img-thumbnail">
+        </a>
+
+        <a href="#/listings/<%= reservation.escape("listing_id") %>">
+          <div class="request-space-title">
+            <%= reservation.escape("listing_title") %>
+          </div>
+        </a>
+      </div>
+    </div>
+
+
+
+
+  <% }) %>
+
+
+
+</div>

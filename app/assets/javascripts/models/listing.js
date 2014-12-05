@@ -23,15 +23,15 @@ ScareBnb.Models.Listing = Backbone.Model.extend({
 			delete response.listing;
 		}
 		
-    	if (response.owner) {
-      		this.owner().set(response.owner, { parse: true });
-      		delete response.owner;
-      	}
+  	if (response.owner) {
+  		this.owner().set(response.owner, { parse: true });
+  		delete response.owner;
+  	}
 
-      	if (response.images) {
-      		this.images().set(response.images, { parse: true });
-      		delete response.images;
-      	}
+  	if (response.images) {
+  		this.images().set(response.images, { parse: true });
+  		delete response.images;
+  	}
 
     return response;
   }

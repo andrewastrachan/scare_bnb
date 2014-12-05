@@ -10,9 +10,11 @@
 
 		<div class="listing-profile-title-box listing-container">
 
-
-			<div class="profile-circle">
-				<img class="profile-image" src="http://americanmuslimconsumer.com/wp-content/uploads/2013/09/blank-user.jpg" alt="<%= this.model.owner().escape('gravatar_url') %>">
+			<div class="listing-owner-description">
+				<div class="profile-circle">
+					<img class="profile-image" src="<%= this.model.owner().escape('gravatar_url')%>" alt="<%= this.model.owner().escape('gravatar_url') %>">
+				</div>
+				<%=listing.owner().escape("name")%>
 			</div>
 
 			<div class="listing-title">
