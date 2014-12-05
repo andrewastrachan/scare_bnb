@@ -1,9 +1,13 @@
 module Api
   class ReservationsController < ApiController
     def index
-
       @reservations = current_user.reservations.where(status: "PENDING")
       render :index
+    end
+
+    def trips
+      @reservations = Reservation.all?
+      render json: @reservations
     end
 
     def show

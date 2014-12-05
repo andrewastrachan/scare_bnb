@@ -330,12 +330,11 @@ label {
 .booking-container {
 	width: 22%;
 	left: 67%;
-	top: -41px;
+	top: 485px;
 	background-color: rgba(133, 133, 133, 0);
 	border: 1px solid #969696;
 	border-radius: 2px;
-	position:absolute;
-
+	position: fixed;
 }
 
 .listing-container {
@@ -415,7 +414,7 @@ label {
 }
 
 .listing-profile-title {
-	height: 125px;
+	height: 128px;
 	background-color: white;
 	border-bottom: 1px solid gainsboro;
 }
@@ -497,8 +496,9 @@ hr {
 	width: 350px;
 	margin: 20px;
 	min-height: 2px;
+	margin: 10px;
 	background-color: #eeeeee;
-	border: 1px solid rgb(202, 202, 202);
+	border: 1px solid #cacaca;
 }
 
 .reservation-container {
@@ -506,6 +506,10 @@ hr {
 	width: 100%;
 	position: absolute;
 	background-color: white;
+	margin-top: -1px auto;
+	display: block;
+	padding-left: 68px;
+	padding-top: 42px;
 }
 
 .check-date {
@@ -564,4 +568,40 @@ hr {
 a:hover {
 	color: rgb(255, 85, 85);
 	text-decoration: none;
+}
+
+/* myTrips */
+
+.trip-declined {
+	border: 1px solid #b9b9b9;
+	text-align: center;
+	padding: 14px;
+	border-radius: 10px;
+	background-color: rgb(255, 97, 97);
+}
+
+.trip-accepted {
+	border: 1px solid rgb(185, 185, 185);
+	text-align: center;
+	padding: 14px;
+	border-radius: 10px;
+	background-color: rgb(91, 239, 76);
+}
+
+.trip-pending {
+	border: 1px solid rgb(185, 185, 185);
+	text-align: center;
+	padding: 14px;
+	border-radius: 10px;
+	background-color: lightgray;
+}
+
+.img-thumbnail {
+	height: 177px;
+	display: block;
+	margin: 0 auto;
+}
+
+.request-picture {
+
 }

@@ -11,10 +11,9 @@ ScareBnb.Models.Reservation = Backbone.Model.extend({
  
 	parse: function(response) { 
 		if (response.requester) {
-
 			this.requester().set(response.requester, { parse: true });
 		}
 	
 		return response;
-	},
+	}
 });
