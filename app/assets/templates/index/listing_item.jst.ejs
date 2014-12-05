@@ -8,10 +8,21 @@
 		</div>
 	</div>
 		<a href="#/listings/<%=listing.escape("id")%>">
+
+
 			<div class="listing-text">
-				<%=listing.escape('title')%>
-				Price:<%=listing.escape('price')%>
-				room type:<%=listing.escape('room_type')%>
+
+				<div class="price-box">
+					<div class="listing-price-symbol">$</div><h2 class="listing-price-index"><%=listing.escape('price')%></h2>
+				</div>
+
+				<div class="profile-circle-sm">
+					<img class="profile-image" src="<%= listing.owner().escape('gravatar_url') %>">
+				</div>
+				<div class="listing-info">
+					<h4><%=listing.escape('title')%></h4>
+					
+				</div>
 			</div>
 		</a>
 </div>

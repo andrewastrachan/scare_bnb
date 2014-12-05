@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
   has_many :reservations, through: :listings
 
   def set_gravatar
-    self.gravatar_url = Gravatar.new(self.email).image_url
+    self.gravatar_url ||= Gravatar.new(self.email).image_url
   end
   
   

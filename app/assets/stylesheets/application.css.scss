@@ -289,6 +289,28 @@ span#ui-id-1-button {
 .listing-box {
 	z-index: -1;
 }
+
+.price-box {
+	width: 75px;
+	height: 40px;
+	/* border: 1px solid black; */
+	position: absolute;
+	background-color: rgba(63, 63, 63, 0.92);
+	color: white;
+	margin-top: -75px;
+}
+
+.listing-price-index {
+	margin-top: 4px;
+	margin-left: 18px;
+}
+
+.listing-price-symbol {
+	position: absolute;
+	margin-left: 8px;
+	margin-top: 6px;
+}
+
  
  /* listing show */
  
@@ -470,6 +492,19 @@ span#ui-id-1-button {
 	overflow: hidden;
 	border: 1px solid #969696;
 	border-radius: 50px;
+}
+
+.profile-circle-sm {
+	background-color: black;
+	float: right;
+	width: 70px;
+	height: 70px;
+	overflow: hidden;
+	border: 2px solid #FFFFFF;
+	border-radius: 50px;
+	position: absolute;
+	margin-left: 260px;
+	margin-top: -45px;
 }
 
 .profile-image {
@@ -711,4 +746,12 @@ a:hover {
 	height: 100%;
 	float: right;
 	position: relative;
+}
+
+form > span#ui-id-1-button {
+	width:  139px !important;
+}
+
+.ui-selectmenu-menu.ui-front.ui-selectmenu-open {
+	z-index: 100000000;
 }
