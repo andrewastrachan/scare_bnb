@@ -35,7 +35,8 @@ images = Image.create!(
 		{url: "https://orringrey.files.wordpress.com/2014/10/univ_psycho_frame_a.jpg", listing_id: 4}, 
 	{url: "http://the.hitchcock.zone/files/gallery/org/4040.jpg", listing_id: 4},
 	{url: "http://scriptshadow.net/wp-content/uploads/2014/10/The-Overlook-Hotel-movie-version.jpg", listing_id: 2},
-	{url: "http://2.bp.blogspot.com/-tuySIy1TZjg/UGltkuo7TBI/AAAAAAAAKJM/dFRoJdRrG2M/s1600/100_1588.JPG", listing_id: 3}
+	{url: "http://2.bp.blogspot.com/-tuySIy1TZjg/UGltkuo7TBI/AAAAAAAAKJM/dFRoJdRrG2M/s1600/100_1588.JPG", listing_id: 3},
+	{url:"http://media-cache-ec0.pinimg.com/originals/f2/af/6c/f2af6c11760d79a99bddb0da32236608.jpg", listing_id: 1}
 	]
 	)
 
