@@ -26,46 +26,63 @@ ScareBnb.Views.ListingShow = Backbone.CompositeView.extend({
 						$('.booking-button').html("Request Sent")
 						$('.booking-button').attr('value', 'Request Sent');
 						$('.booking-button').attr('disabled','disabled');
+						toastr.clear()
+						toastr.success("Request Sent");
 					}
 				});
 
-			} else if (typeof this._startDate !== "object") {
-				$( ".booking-button" ).effect( "shake", {distance: 5}, 30 )
+			} else if ((typeof this._startDate === "undefined") || (typeof this._endDate === "undefined")) {
+				this.handleRequestErrors()
 			}
+	},
+	
+	handleRequestErrors: function(event) {
+		var errors = []
+		if (typeof this._startDate === "undefined") {errors.push(["Date Error", "Please Include Start Date"])}
+		if (typeof this._endDate === "undefined") {errors.push(["Date Error", "Please Include End Date"])}
+		errors.forEach(function(error){
+			toastr.error(error[1], error[0]);
+		})
+
 	},
 	
 	attachCarousel: function() {
 		var carouselView = new ScareBnb.Views.Carousel({collection: this.model.images()})
 		this.addSubview(".carousel-container", carouselView)
 	},
-
-	attachCalendars: function() {
-	   	this._startingCalendar = this.$( "#check-in" ).datepicker({
-	      defaultDate: "+1w",
-	      changeMonth: true,
-	      numberOfMonths: 1,
-	      onClose: function( selectedDate ) {
-	        $( "#check-out" ).datepicker( "option", "minDate", selectedDate );
-	      },
-				onSelect: this.parseDate.bind(this)
-	    	});
-	    this._endingCalendar = this.$( "#check-out" ).datepicker({
-	      defaultDate: "+1w",
-	      changeMonth: true,
-	      numberOfMonths: 1,
-	      onClose: function( selectedDate ) {
-	        $( "#check-in" ).datepicker( "option", "maxDate", selectedDate );
-	      },
-				onSelect: this.parseDate.bind(this)
-			});
+	
+	attachDatepickers: function() {
+		var that = this;
+		this._datepicker = this.$('.input-daterange').datepicker({
+		    format: "mm/dd/yyyy",
+		    startDate: "-infinity"
+		}).on("changeDate", that.checkDates.bind(that))
 	},
-
-	parseDate: function(dateInf, dateObj){
-		if (dateObj.id === "check-in") {
-			this._startDate = new Date(dateInf);
+	
+	checkDates: function(ev) {
+		var target = ev.target.name;
+		if (target === "start") {
+			this._startDate = ev.date;
 		} else {
-			this._endDate = new Date(dateInf);
-		}
+			this._endDate = ev.date;
+		} 
+	},
+	
+	addNavbar: function() {
+		var navbarView = new ScareBnb.Views.Navbar();
+		this.addSubview(".navbar-vw", navbarView);
+	},
+	
+	attachSearchBox: function() {
+		var input = this.$('#search-box');
+	  var searchBox = new google.maps.places.Autocomplete(input[0]);
+		var that = this;
+		google.maps.event.addListener(searchBox, 'place_changed', function() {
+			var bounds = this.getPlace().geometry.location;
+			locationSearchFilter.lng = bounds.lng();
+			locationSearchFilter.lat = bounds.lat();
+			Backbone.history.navigate("", {trigger: true})
+		});
 	},
 	
 	render: function() {
@@ -75,9 +92,9 @@ ScareBnb.Views.ListingShow = Backbone.CompositeView.extend({
 			this.attachCarousel();
 		}
 
-		if (this.model.images()) {
-			this.attachCalendars();
-		}
+		this.attachDatepickers();
+		this.addNavbar();
+		this.attachSearchBox();
 
 		
 		

@@ -2,12 +2,16 @@
 
 <div class="reservation-filter-container">
 	<form>
-		<input type="text" id="start-calendar" class="form-control-dates">
-		<input type="text" id="end-calendar" class="form-control-dates">
+			<div class="input-daterange input-group date-search" id="datepicker">
+		    <input type="text" class="input-sm form-control form-control-dates start-date" name="start" />
+		    <input type="text" class="input-sm form-control form-control-dates end-date" name="end" />
+			</div>
 		<select class="max-guest-list">
-			<% for (var i = 1; i < 17; i++) {%>
-				<option class="guest-count-drop-down" value="<%= i %>"><%= i %></option>
+			<option class="guest-count-drop-down" value="1">1 Guest</option>
+			<% for (var i = 2; i < 16; i++) {%>
+				<option class="guest-count-drop-down" value="<%= i %>"><%= i %> Guests</option>
 			<% } %>
+			<option class="guest-count-drop-down" value="1">16+ Guests</option>
 		</select>
 	</form>
 </div>

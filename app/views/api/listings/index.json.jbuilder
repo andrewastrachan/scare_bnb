@@ -1,4 +1,5 @@
 json.array! @listings do |listing|
+
 	json.id listing.id
 	json.title listing.title
 	json.latitude listing.latitude
@@ -13,5 +14,13 @@ json.array! @listings do |listing|
 	end
 	json.images listing.images do |image|
 		json.url image.url
+	end
+	
+	
+	
+	json.current_user do
+		json.id current_user.id
+		json.name current_user.name
+		json.gravatar_url current_user.gravatar_url
 	end
 end

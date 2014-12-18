@@ -14,8 +14,9 @@
 //= require jquery_ujs
 //= require jquery.liblink
 //= require jquery.nouislider
-//= require jquery-ui
 //= require jquery.serializejson
+//= require toastr
+//= require bootstrap-datepicker.js
 //= require owl.carousel
 //= require underscore
 //= require backbone

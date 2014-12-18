@@ -27,8 +27,6 @@ ScareBnb.Collections.Listings = Backbone.Collection.extend({
 		return this._filtered;
 	},
 	
-	// collection.filtered();
-	
 	filters: {
 	},
 	
@@ -83,29 +81,32 @@ ScareBnb.Collections.Listings = Backbone.Collection.extend({
 		return models;
 	},
 	
+	
+	//if (models) serves a solution to problem where filter was attempted before fetch
 	updateFilterByDate: function(models) {
 		var startDate = new Date(this.filters.startDate);
 		var endDate = new Date(this.filters.endDate);
 		var that = this
-		var models = models.filter(function(model) {
-			var reservations = model.get("reservations")
-			var conflict = false
+			if (models) {
+				var models = models.filter(function(model) {
+					var reservations = model.get("reservations")
+					var conflict = false
 			
-			reservations.forEach(function(reservation){
-				var reservationStartDate = new Date(reservation.start_date);
-				var reservationEndDate = new Date(reservation.end_date);
-				debugger;
-				if (startDate > reservationStartDate && startDate < reservationEndDate) {
-					conflict = true;
-				} else if (endDate > reservationStartDate && endDate < reservationEndDate){
-					conflict = true;
-				} else if (startDate < reservationStartDate && endDate > reservationEndDate) {
-					conflict = true;
-				}
-			});
+					reservations.forEach(function(reservation){
+						var reservationStartDate = new Date(reservation.start_date);
+						var reservationEndDate = new Date(reservation.end_date);
+						if (startDate > reservationStartDate && startDate < reservationEndDate) {
+							conflict = true;
+						} else if (endDate > reservationStartDate && endDate < reservationEndDate){
+							conflict = true;
+						} else if (startDate < reservationStartDate && endDate > reservationEndDate) {
+							conflict = true;
+						}
+					});
 
-			return (conflict === true ? false : true);
-		});
+					return (conflict === true ? false : true);
+				});
+			}
 		
 		return models;
 	},

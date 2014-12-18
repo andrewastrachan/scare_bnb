@@ -1,3 +1,6 @@
+<div class="navbar-vw"></div>
+
+<div id="alert" class="hide"></div>
 
 <div class="carousel-container">
 
@@ -64,18 +67,12 @@
 			<div>
 				<form>
 				  	<div class="form-group">
-
-					    <div class="input-group date">
-					      	<label for="check-in" class="booking-label">Check In</label>
-
-					      	<input id="check-in" class="booking-form-input" type="text" name="reservation[check_in]" placeholder="mm/dd/yyyy">
-					    </div>
-
-					    <div class="input-group date">
-					      	<label for="check-out" class="booking-label">Check Out</label>
-
-					      	<input id="check-out" class="booking-form-input" type="text" name="resevation[check_out]" placeholder="mm/dd/yyyy">
-					    </div>
+						<div class="date-pick-listing-show">
+							<div class="input-daterange listing-datesearch" id="datepicker">
+												    <input type="text" class="input-sm form-control date-listing-form-item" name="start" placeholder="Check In" />
+												    <input type="text" id="listing-end-date" class="input-sm form-control date-listing-form-item" name="end" placeholder="Check Out" />
+							</div>
+						</div>
 
 				 	</div>
 

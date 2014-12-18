@@ -9,6 +9,11 @@ ScareBnb.Views.ListingSearch = Backbone.CompositeView.extend ({
 		ScareBnb.Collections.listings.updateFilters()
 	},
 	
+	addNavbar: function() {
+		var navbarView = new ScareBnb.Views.Navbar();
+		this.addSubview(".navbar-vw", navbarView);
+	},
+	
 	addMap: function(){
 		this._mapShow = new ScareBnb.Views.Map({
 			collection: this.collection
@@ -37,7 +42,6 @@ ScareBnb.Views.ListingSearch = Backbone.CompositeView.extend ({
 	},
 	
 	render: function(){
-		console.log('rendering search index');
 		var content = this.template();
 		this.$el.html(content);
 		
@@ -46,7 +50,7 @@ ScareBnb.Views.ListingSearch = Backbone.CompositeView.extend ({
 	},
 	
 	onRender: function () {
-		console.log('onRender search index');
+		this.addNavbar();
 		this.addListings();
 		this.addMap();
 		this.addSlider();

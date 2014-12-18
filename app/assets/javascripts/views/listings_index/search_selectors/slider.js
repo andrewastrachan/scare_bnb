@@ -16,9 +16,6 @@ ScareBnb.Views.Slider = Backbone.View.extend ({
 	
 	setSliderEvents: function() {
 		$(".slider").on({
-			slide: function(){
-				console.log("slide")
-			},
 			change: this.changeFilter.bind(this)
 		});	
 	},
