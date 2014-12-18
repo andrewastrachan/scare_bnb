@@ -81,7 +81,7 @@ ScareBnb.Views.ListingShow = Backbone.CompositeView.extend({
 			var bounds = this.getPlace().geometry.location;
 			locationSearchFilter.lng = bounds.lng();
 			locationSearchFilter.lat = bounds.lat();
-			Backbone.history.navigate("", {trigger: true})
+			Backbone.history.navigate("search", {trigger: true})
 		});
 	},
 	

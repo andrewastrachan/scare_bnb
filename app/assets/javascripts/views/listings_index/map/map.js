@@ -66,7 +66,7 @@ ScareBnb.Views.Map = Backbone.View.extend({
 	 
 	 //also handles map marker
 
-	 window: function() {
+	 inputWindow: function() {
 	 	if (typeof this._window === "undefined") {
 	 		this._window = new ScareBnb.Views.MapWindow()
 	 	}
@@ -75,10 +75,10 @@ ScareBnb.Views.Map = Backbone.View.extend({
 	 },
 
 	 setWindow: function(marker, model) { 
-	 	this.window().marker = marker;
-		this.window().model = model;
-		this.window().map = this._map;
-		this.window().createWindow();
+	 	this.inputWindow().marker = marker;
+		this.inputWindow().model = model;
+		this.inputWindow().map = this._map;
+		this.inputWindow().createWindow();
 	 },
 	 
 	 updateMap: function() {
