@@ -8,6 +8,15 @@
 </head>
 <body>
 	
+<script type="text/javascript">
+	<% if current_user %>
+		var currentUser = new ScareBnb.Models.User({ id: <%= current_user.id %>, logged_in: true })
+		ScareBnb.Collections.users.add(currentUser);
+		currentUser.fetch();
+		ScareBnb.Collections.users.add(currentUser);		
+	<% end %>
+</script>
+	
 <!-- <#%= render partial: "layouts/header" unless @disable_nav %> -->
 <%= yield %>
 

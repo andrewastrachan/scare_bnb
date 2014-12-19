@@ -1,4 +1,4 @@
-ScareBnb.Views.Root = Backbone.View.extend({
+ScareBnb.Views.Root = Backbone.CompositeView.extend({
 	template: JST['root/root'],
 	
 	initialize: function() {
@@ -18,7 +18,7 @@ ScareBnb.Views.Root = Backbone.View.extend({
 	
 	handleErrors: function() {
 		var errors = false;
-		debugger
+
 		if (!this.locationSelected) {
 			toastr.error("Please enter a location");
 			errors = true;
@@ -32,7 +32,7 @@ ScareBnb.Views.Root = Backbone.View.extend({
 		if (typeof otherSearchFilters.endDate === "undefined") {
 			toastr.error("Please enter an ending date");
 			errors = true;
-		} else if (otherSearchFilters.endDate <= otherSearchFilters.startDate){
+		} else if (otherSearchFilters.endDate < otherSearchFilters.startDate){
 			toastr.error("Please enter a valid date range");
 			errors = true;
 		}
@@ -46,6 +46,7 @@ ScareBnb.Views.Root = Backbone.View.extend({
 		this.$el.html(content);
 		this.attachSearchBox();
 		this.attachDatepickers();
+		this.addNavbar();
 		
 		return this;
 	},
@@ -64,9 +65,15 @@ ScareBnb.Views.Root = Backbone.View.extend({
 		var target = ev.target.name;
 		if (target === "start") {
 			otherSearchFilters.startDate = ev.date;
+			this.$('.root-end-date').datepicker('show')
 		} else {
 			otherSearchFilters.endDate = ev.date;
 		} 
+	},
+	
+	addNavbar: function() {
+		var navbarView = new ScareBnb.Views.RootNavbar();
+		this.addSubview(".navbar-vw", navbarView);
 	},
 	
 	attachSearchBox: function() {

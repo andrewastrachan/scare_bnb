@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-default navbar-root navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button> -->
-          <a class="navbar-brand" href="#"><img alt="scarebnb" src="assets/scarebnb-logo.png" height="50" width="130" class="logo"></a>
+          <a class="navbar-brand" href="#"><img alt="scarebnb" src="assets/scarebnb-logo-root.png" height="70" width="170" class="logo-root"></a>
         </div>
 				
 				<!-- Render if current user -->
@@ -15,12 +15,8 @@
 				<% if (typeof user != "undefined" && user != null) { %>
 				
 	        <div id="navbar" class="navbar-collapse collapse">
-	          <ul class="nav navbar-nav">
-	            <li class="active"><input type="text" id="search-box" class="form-control"></span></li>
-            
-	          </ul>
 	          <ul class="nav navbar-nav navbar-right">
-							<li><div class="profile-pic-nav-sm"><img src="<%=user.escape('gravatar_url')%>" class="profile-img-nav-sm"></div></li>
+							<li><div class="profile-pic-nav-sm root-pic"><img src="<%=user.escape('gravatar_url')%>" class="profile-img-nav-sm"></div></li>
 	            <li class="dropdown">
 	              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
 									<%= user.escape('name') %>

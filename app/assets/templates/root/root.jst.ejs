@@ -1,3 +1,4 @@
+<div class="navbar-vw"></div>
 <div class="root-image">
 	<img class="splash-img" src="assets/splash.jpg">
 </div>
@@ -15,7 +16,7 @@
 			<input type="text" id="map-search" class="main-map-search">
 			<div class="input-daterange input-group" id="datepicker">
 		    <input type="text" class="main-day-search" name="start" placeholder="Check In" />
-		    <input type="text" class="main-day-search" name="end" placeholder="Check Out" />
+		    <input type="text" class="main-day-search root-end-date" name="end" placeholder="Check Out" />
 			</div>
 		
 			<button type="submit" class="main-booking-button button-waiting">Search</button>
@@ -23,3 +24,58 @@
 	</div>
 </div>
 
+<div class="modal-containter">
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+</div>
+
+<!-- Modal Sign Up-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h1 class="form-signin-signup-heading">Sign Up</h2>
+      </div>
+      <div class="modal-body">
+				<form class="form-signin">
+					<label for="name" class="sr-only">Name</label>
+					<input 
+						id="name"
+						type="text"
+						name="user[name]"
+						class="form-control"
+						placeholder="Name">
+					<br>
+	
+					<label for="email" class="sr-only">Email</label>
+					<input 
+						id="email"
+						type="text"
+						name="user[email]"
+						class="form-control"
+						placeholder="Email address"
+						value="">
+	
+					<br>
+		
+					<label for="password" class="sr-only">Password</label>
+					<input 
+						id="password"
+						type="password"
+						name="user[password]"
+						class="form-control"
+						placeholder="Password">
+	
+					<br>
+	
+					<button 
+							class="btn btn-lg btn-primary btn-block" 				
+							type="submit">Sign Up</button>
+	
+				</form>
+      </div>
+    </div>
+  </div>
+</div>

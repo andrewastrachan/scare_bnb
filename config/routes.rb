@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resource :session
   
   namespace :api, defaults: {format: :json} do
+    resources :users
+    
     resources :listings 
 
     resources :reservations, only: [:create, :index, :update, :show]

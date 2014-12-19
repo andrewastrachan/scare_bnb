@@ -1,5 +1,5 @@
-ScareBnb.Views.Navbar = Backbone.View.extend({
-	template: JST["navbar/navbar"],
+ScareBnb.Views.RootNavbar = Backbone.View.extend({
+	template: JST["navbar/root_navbar"],
 	
 	initialize: function() {
 		this.listenTo(ScareBnb.Collections.users, "'sync add remove change reset'", this.render)

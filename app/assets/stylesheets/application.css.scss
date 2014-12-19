@@ -141,6 +141,16 @@ width: 700px;
 	width: 100%;
 }
 
+.log-in {
+	display: inline-block;
+	margin-right: 10px
+}
+
+.sessions {
+	float: right;
+	margin-top: 14px;
+}
+
 /*Root*/
 
 .filter-label {
@@ -905,4 +915,28 @@ form > span#ui-id-1-button {
 input.main-day-search {
 	font-size: 18px !important;
 	text-align: left !important;
+}
+
+.modal-containter {
+	margin: 202px;
+	position: relative;
+}
+
+.navbar-default.navbar-root {
+	margin-top: 25px;
+	background-color: rgba(218, 218, 218, 0);
+	border-color: rgba(254, 254, 254, 0);
+	position: absolute;
+}
+
+.profile-pic-nav-sm.root-pic {
+	border: 2px solid white;
+}
+
+.navbar-default.navbar-root .navbar-nav > li > a {
+	color: #FFFFFF;
+}
+
+.logo-root {
+	margin-top: -28px;
 }
