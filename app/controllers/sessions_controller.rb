@@ -7,17 +7,23 @@ class SessionsController < ApplicationController
     @user = User.find_by_credentials(params[:user])
     
     if @user
-      sign_in!(@user)
-      redirect_to root_url
+      sign_in!(@user)  
+      # redirect_to user_url(@user)
+      render json: { success: @user.id }
     else
-      flash.now[:errors] = ["Invalid email and password combination"]
-      render :new
+      errors = []
+      errors << "E-mail can't be blank" if params[:user][:email].empty?
+      errors << "Password can't be blank" if params[:user][:password].empty?
+      if params[:user][:email].present? && params[:user][:password].present?
+        errors << "Invalid Credentials, please try again" 
+      end
+      render json: { errors: errors }
     end
   end
   
   def destroy
     sign_out!
-    redirect_to new_session_url
+    render json: current_user
   end 
   
 end
