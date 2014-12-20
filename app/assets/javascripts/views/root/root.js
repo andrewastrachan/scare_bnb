@@ -6,7 +6,7 @@ ScareBnb.Views.Root = Backbone.CompositeView.extend({
 	},
 	
 	events: {
-		"submit form": "submitSearch"
+		"submit form.form-search": "submitSearch"
 	},
 	
 	submitSearch: function(event) {

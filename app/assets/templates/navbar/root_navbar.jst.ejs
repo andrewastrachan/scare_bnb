@@ -34,7 +34,7 @@
 	                <li><a href="#">Edit Profile</a></li>
 	                <li><a href="#">Account</a></li>
 	                <li class="divider"></li>
-									<li>Sign Out</li>
+									<li><a class="log-out" role="button">Sign Out</a></li>
 	              </ul>
 	            </li>
 						
@@ -67,7 +67,7 @@
       <h1 class="form-signin-signup-heading">Sign Up</h2>
       </div>
       <div class="modal-body">
-				<form class="form-signin">
+				<form class="form-signup">
 					<label for="name" class="sr-only">Name</label>
 					<input 
 						id="name"
@@ -117,10 +117,10 @@
       <h1 class="form-signin-signup-heading">Log In</h1>	
       </div>
       <div class="modal-body">
-				<form>
-					<label for="email" class="sr-only">Email</label>
+				<form id="signIn" class="form-signin">
+					<label for="logInEmail" class="sr-only">Email</label>
 					<input
-						id="email"
+						id="logInEmail"
 						type="text"
 						class="form-control"
 						name="user[email]"
@@ -130,9 +130,9 @@
 	
 					<br>
 		
-					<label for="password" class="sr-only">Password</label>
+					<label for="logInPassword" class="sr-only">Password</label>
 					<input 
-						id="password"
+						id="logInPassword"
 						type="password"
 						class="form-control"
 						name="user[password]"
@@ -146,6 +146,9 @@
 							type="submit">Sign In</button>
 	
 				</form>
+				
+				<button 
+						class="btn btn-lg btn-primary btn-block guest">Guest Sign-in</button>
       </div>
     </div>
   </div>

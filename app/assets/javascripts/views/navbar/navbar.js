@@ -4,7 +4,8 @@ ScareBnb.Views.Navbar = Backbone.View.extend({
 	events: {
 		"click a.log-out" : "signOut",
 		"submit form.form-signin" : "signIn",
-		"submit form.form-signup" : "signUp"
+		"submit form.form-signup" : "signUp",
+		"click button.guest" : "guestSignIn"
 	},
 	
 	signOut: function(event) {
