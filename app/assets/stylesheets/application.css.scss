@@ -970,6 +970,7 @@ img.root-city {
 	height: auto;
 	display: inline-block;
 	margin: 0px auto;
+	position: relative;
 }
 
 .root-splash {
@@ -977,6 +978,7 @@ img.root-city {
 	padding: 0px;
 	align-content: center;
 	width: 950px;
+	height: 550px;
 	padding-bottom: 25px;
 }
 
@@ -985,7 +987,7 @@ img.root-city {
 	position: absolute;
 	margin-top: -225px;
 	font-size: 37px;
-	width: 22%;
+	width: 94%;
 	text-align: center;
 }
 
@@ -1011,6 +1013,7 @@ h2.root-title {
 	height: 175px;
 	padding: 50px;
 	font-size: 20px;
+	position: relative;
 }
 
 a.root-link {
