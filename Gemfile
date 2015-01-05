@@ -9,6 +9,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails', "~> 2.3.0"
 gem 'jquery-nouislider-rails'
+gem 'filepicker-rails'
+gem 'figaro'
 gem 'bcrypt'
 gem 'jbuilder', '~> 2.0'
 gem 'js_assets'

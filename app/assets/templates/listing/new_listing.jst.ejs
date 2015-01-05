@@ -1,3 +1,101 @@
 <div class="navbar-vw"></div>
 
-<div><p>This is where the form goes</p></div>
+<div class="listing-form-container">
+
+	<h1 class="new-listing-title">New Listing</h1>
+	
+	<br>
+	
+	<form id="newListing" class="form-listing">
+		<label for="listingTitle" class="sr-only">Listing Title</label>
+		<input
+			id="listingTitle"
+			type="text"
+			class="form-control"
+			name="listing[title]"
+			placeholder="Title"
+			value="">
+		</label>
+
+		<br>
+		
+		<label for="listingAddress" class="sr-only">Listing Address</label>
+		<input
+			id="listingAddress"
+			type="text"
+			class="form-control"
+			name="listing[address]"
+			placeholder="Address"
+			value="">
+		</label>
+
+		<br>
+		
+		<label for="listingSummary" class="sr-only">Listing Address</label>
+		<input
+			id="listingSummary"
+			type="text"
+			class="form-control"
+			name="listing[summary]"
+			placeholder="Summary"
+			value="">
+		</label>
+
+		<br>
+
+		<label for="logInDescription" class="sr-only">Password</label>
+		<textarea 
+			id="listingDescription"
+			placeholder="Description"
+			cols="40" 
+			rows="5" 
+			name="listing[description]"
+			class="form-control"></textarea>
+
+		<br>
+		
+		<label for="listingPrice" class="sr-only">Listing Price</label>
+		<input
+			id="listingPrice"
+			type="number"
+			class="form-control"
+			name="listing[price]"
+			placeholder="$/night"
+			value="">
+		</label>
+
+		<br>
+		
+		<select class="listing-form" name="listing[room_type]" form="newListing">
+		  <option value="entirePlace">Entire Place</option>
+			<option value="privateRoom">Private Room</option>
+			<option value="sharedRoom">Shared Room</option>
+		</select>
+		
+		<br>
+		<br>
+
+		<select class="listing-form" name="listing[max_guests]" form="newListing">
+			<option class="guest-count-drop-down" value="1">1 Guest</option>
+			<% for (var i = 2; i < 16; i++) {%>
+				<option class="guest-count-drop-down" value="<%= i %>"><%= i %> Guests</option>
+			<% } %>
+			<option class="guest-count-drop-down" value="16">16+ Guests</option>
+		</select>
+		
+		<br>
+		<br>
+		
+		<input
+		  type="filepicker"
+		  data-fp-mimetype="image/*"
+		  name="image[url]"
+			class="form-control">
+		<br>
+		
+		<button 
+				class="btn-signin" 				
+				type="submit">Submit</button>
+
+	</form>
+</div>

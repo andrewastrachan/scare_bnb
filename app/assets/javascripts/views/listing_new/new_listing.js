@@ -5,34 +5,43 @@ ScareBnb.Views.newListing = Backbone.CompositeView.extend({
 	},
 
 	events: {
-		// "submit form" : "submitForm"
+		"submit form.form-listing" : "submitListing"
 	},
 
-	submitForm: function(event) {
-		//
-		// event.preventDefault();
-		// that = this;
-		// 	if ((typeof this._startDate === "object") && (typeof this._endDate === "object")) {
-		// 		var newReservation = new ScareBnb.Models.Reservation()
-		// 		newReservation.set("start_date", this._startDate)
-		// 		newReservation.set("end_date", this._endDate)
-		// 		newReservation.set("listing_id", this.model.get("id"))
-		//
-		// 		newReservation.save({}, {
-		//
-		// 			success: function() {
-		// 				$('.booking-button').addClass("button-success")
-		// 				$('.booking-button').html("Request Sent")
-		// 				$('.booking-button').attr('value', 'Request Sent');
-		// 				$('.booking-button').attr('disabled','disabled');
-		// 				toastr.clear()
-		// 				toastr.success("Request Sent");
-		// 			}
-		// 		});
-		//
-		// 	} else if ((typeof this._startDate === "undefined") || (typeof this._endDate === "undefined")) {
-		// 		this.handleRequestErrors()
-		// 	}
+	submitListing: function(event) {
+		event.preventDefault();
+		
+		var formDetails = $(event.currentTarget).serializeJSON();
+		var listingDetails = formDetails.listing;
+		var imageDetails = formDetails.image;
+		var newListing = new ScareBnb.Models.Listing(formDetails);
+		var that = this;
+		newListing.save(null, {
+			success: function(model, response) {
+				if (response.errors) {
+					response.errors.forEach(function(error) {
+						toastr.error(error);
+					});
+				} else {
+					that.saveImage(response, formDetails);
+				}
+
+			}
+		});
+	},
+	
+	saveImage: function(listingId, formDetails) {
+		debugger;
+		var image = new ScareBnb.Models.Image(formDetails);
+		image.attributes.image.listing_id = listingId;
+		image.save(null, {
+			success: function(model, response) {
+				Backbone.history.navigate("listings/" + listingId, {trigger: true});
+			},
+			error: function() {
+				toastr.error("something went wrong")
+			}
+		})
 	},
 	
 	handleRequestErrors: function(event) {
@@ -60,6 +69,11 @@ ScareBnb.Views.newListing = Backbone.CompositeView.extend({
 			locationSearchFilter.lat = bounds.lat();
 			Backbone.history.navigate("search", {trigger: true})
 		});
+		
+		//also add address box autocomplete
+		
+		var inputTwo = this.$('#listingAddress');
+	  var addressBox = new google.maps.places.Autocomplete(inputTwo[0]);
 	},
 	
 	render: function() {

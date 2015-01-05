@@ -6,7 +6,7 @@ ScareBnb.Views.Checkboxes = Backbone.View.extend({
 		$boxes = this.$("[name='room-type']");
 		var roomTypes = [];
 		ScareBnb.Collections.listings.filters.roomTypes = [];
-		
+		debugger;
 		for (var i = 0; i < $boxes.length; i++){
 			var setClass = $boxes[i].attributes.class;
 			var roomType = $boxes[i].value;	

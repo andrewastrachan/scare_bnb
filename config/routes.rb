@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :users
     
     resources :listings 
+    
+    resources :images, only: [:create]
 
     resources :reservations, only: [:create, :index, :update, :show]
 

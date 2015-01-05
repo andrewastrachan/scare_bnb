@@ -78,6 +78,10 @@ button.guest {
 	margin-bottom: 0px;
 }
 
+button:hover {
+	background-color: #EA3238
+}
+
 /*NAVBAR*/
 
 .container {
@@ -162,6 +166,27 @@ width: 700px;
 .sessions {
 	float: right;
 	margin-top: 14px;
+}
+
+.new-listing-button {
+	height: 29px;
+	width: 102px;
+	margin-top: 10px;
+	margin-right: 10px;
+	background-color: #007a87;
+	border: 1px solid #007a87;
+	border-radius: 2px;
+	text-align: center;
+	color: white;
+	font-size: 12px;
+	font-weight: 500;
+	padding: 4px;
+}
+
+.new-listing-button:hover {
+	background-color: #14A0AF;
+	border: 1px solid #14A0AF;
+	color: white;
 }
 
 /*Root*/
@@ -759,11 +784,7 @@ a:hover {
 
 }
 
-
-
-
 /* No UI edits */ 
-
 
 .noUi-handle {
 	border: 1px solid #D9D9D9;
@@ -1040,3 +1061,20 @@ a.root-link:hover {
 .log-out {
 	cursor: pointer;
 }
+
+.listing-form {
+	width: 100%;
+	background-color: white;
+	height: 50px;
+}
+
+.listing-form-container {
+	width: 400px;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 5px;
+}
+/* New Listing */
+
+
+
