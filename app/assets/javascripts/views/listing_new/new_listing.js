@@ -31,7 +31,6 @@ ScareBnb.Views.newListing = Backbone.CompositeView.extend({
 	},
 	
 	saveImage: function(listingId, formDetails) {
-		debugger;
 		var image = new ScareBnb.Models.Image(formDetails);
 		image.attributes.image.listing_id = listingId;
 		image.save(null, {

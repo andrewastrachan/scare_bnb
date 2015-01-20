@@ -18,6 +18,7 @@ ScareBnb.Collections.Users = Backbone.Collection.extend({
              ScareBnb.Collections.users.add(currentUser);
              currentUser.fetch();
            };
+					 $('body').removeClass('modal-open');
          } else {
            resp['errors'].forEach(function(message){
              toastr.error(message)

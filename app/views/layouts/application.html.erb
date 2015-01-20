@@ -16,11 +16,13 @@
 		ScareBnb.Collections.users.add(currentUser);		
 	<% end %>
 </script>
-
-<%= filepicker_js_include_tag %>
 	
 <!-- <#%= render partial: "layouts/header" unless @disable_nav %> -->
+<%= filepicker_js_include_tag %>
+
 <%= yield %>
+
+
 
 </body>
 </html>
