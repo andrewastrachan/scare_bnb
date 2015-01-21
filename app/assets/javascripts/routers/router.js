@@ -67,6 +67,13 @@ ScareBnb.Routers.Router = Backbone.Router.extend({
 		requests.fetch();
 	},
 	
+	//private 
+	
+	_resetSearchFilter: function() {
+		locationSearchFilter.lat = 37.781056;
+		locationSearchFilter.lng = -122.411455;
+	},
+	
 	_swapView: function(view) {
 		if (this._currentView) {
 			this._currentView.remove()
@@ -75,14 +82,6 @@ ScareBnb.Routers.Router = Backbone.Router.extend({
 		this.$rootEl.html(this._currentView.render().$el);
 		
 		view.onRender && view.onRender();
-	},
-	
-	_resetSearchFilter: function() {
-		locationSearchFilter.lat = 37.781056;
-		locationSearchFilter.lng = -122.411455;
 	}
-	
-	
-	
 });
 

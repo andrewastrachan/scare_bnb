@@ -6,7 +6,8 @@ ScareBnb.Views.Root = Backbone.CompositeView.extend({
 	},
 	
 	events: {
-		"submit form.form-search": "submitSearch"
+		"submit form.form-search": "submitSearch",
+		"click .root-city": "searchByCity"
 	},
 	
 	submitSearch: function(event) {
@@ -14,6 +15,13 @@ ScareBnb.Views.Root = Backbone.CompositeView.extend({
 		if (this.handleErrors()) {
 			Backbone.history.navigate("search", {trigger: true})
 		}
+	},
+	
+	searchByCity: function(event){
+		locationSearchFilter.lat = parseFloat($(event.currentTarget).data("lat"));
+		locationSearchFilter.lng = parseFloat($(event.currentTarget).data("lng"));
+		debugger;
+		Backbone.history.navigate("search", {trigger: true});
 	},
 	
 	handleErrors: function() {
